@@ -1,0 +1,25 @@
+
+.Header {
+  align-items: center;
+  
+  .logo{
+    flex-grow: 1;
+  }
+
+  .nav-menu {
+    flex-grow: 2;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+    list-style: none;
+    
+    
+  }
+  .right-nav {
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+}
+.flex {
+  display: flex;
+}

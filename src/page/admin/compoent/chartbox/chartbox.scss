@@ -1,0 +1,29 @@
+.chartbox{
+    display: flex;
+    justify-content: space-between;
+   .chartbox-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  
+    .chartbox-title{
+        display: flex;
+        gap:10px;
+        span{
+            font-size: 16px;
+            color:white;
+            font-weight: 700;
+        }
+    }
+    .chartbox-num{
+        color:white;
+        font-size: 20px;
+    }
+   }
+   .chartbox-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+}
