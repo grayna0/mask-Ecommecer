@@ -69,7 +69,7 @@ const LayOut = ({
           <input
             type="text"
             {...register("password")}
-            placeholder="Password..."
+            placeholder="Passwordss..."
           />
           <div className="bottom-form">
             <button onClick={!ChangeLayout ?  handleSubmit(onSubmit) : changeLayout}>
