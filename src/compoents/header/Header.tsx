@@ -1,12 +1,14 @@
 import React from "react";
 import Navbar from "./Navbar";
-import Head from "./Head";
+
 import {Link} from 'react-router-dom'
 
 const Header = () => {
   return (
     <div className="Header flex">
-      <Head />
+       <div className="logo">
+      Logo
+    </div>
       <Navbar />
       <div className="right-nav flex">
         <Link to='login'>login</Link>

@@ -9,15 +9,17 @@ import { productContext } from "../Admin";
 
 export interface Product {
   id: number;
-  img: FileList | File[];
+  img: FileList | File[] ;
   title: string;
   color: string;
   producer: string;
-  price: string;
+  price: number;
+  sale: number;
   createdAt: string;
   inStock: boolean;
-  decription: string;
-  quantity: number;
+  description: string;
+  quantity:number;
+  star:number
 }
 const Products = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -25,8 +27,7 @@ const Products = () => {
   const [sreachTitles, setSreachTitles] = useState<string>("");
   const [productSreach, setProductSreach] = useState<Product[]>([]);
 
-  console.log(sreachTitles);
-  console.log(productSreach);
+
 
   const openModal = () => {
     setIsOpen(true);
@@ -71,6 +72,7 @@ const Products = () => {
             sreachTitles.length > 0 ? productSreach : productData.products
           }
           setproducts={productData.setProducts}
+          producer={productData.acountActive}
         />
       </div>
       {isOpen && <Add setClose={closeModal} />}

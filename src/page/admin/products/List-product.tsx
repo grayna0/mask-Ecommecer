@@ -6,13 +6,16 @@ import { AiFillDelete } from "react-icons/ai";
 import { BsCheck } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import { Product } from "./Products";
+import { infoUser } from "../../../compoents/formLogin/FormLogin";
 
 export default function DataTable({
   dataProducts,
   setproducts,
+  producer
 }: {
   dataProducts: Product[];
   setproducts: any;
+  producer:infoUser
 }) {
   const prindIndex = (params: Product) => {
     return <p>{dataProducts.indexOf(params)}</p>;
@@ -80,10 +83,12 @@ export default function DataTable({
               <img src="./view.svg" alt="view" />
             </Link>
             <AiFillDelete className="icon" onClick={() => deleteProduct(id)} />
+            {/* <p className="icon" onClick={() => dupliProduct(id)} >{id}</p> */}
           </div>
         );
       },
     },
+
   ];
 
   const deleteProduct = (id: number) => {
@@ -98,6 +103,33 @@ export default function DataTable({
         console.error("Error deleting product:", errors);
       });
   };
+
+
+
+  // const dupliProduct = (id: number) => {
+  //   const dip = dataProducts.find((item) => item.id === id);
+ 
+    
+  //   const updateRows = {
+  //     img: dip?.img,
+  //     description: dip?.description,
+  //     sale: dip?.sale,
+  //     inStock: true,
+  //     price: dip?.price,
+  //     producer:dip?.producer,
+  //     title: dip?.title + "copy",
+  //     quantity: dip?.quantity,
+  //     star: dip?.star
+  //   };
+  //   axios
+  //     .post(`${apiUrl}/products`,updateRows)
+  //     .then(() => {
+  //       console.log("dupli");
+  //     })
+  //     .catch((errors) => {
+  //       console.error("Error deleting product:", errors);
+  //     });
+  // };
 
   return (
     <div style={{ height: 400, width: "100%" }}>

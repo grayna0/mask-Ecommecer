@@ -1,0 +1,84 @@
+@import "../../styles/comon.scss";
+
+.container {
+  .banner {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient($main-bg, rgba(68, 0, 82, 0.623));
+    align-items: flex-end;
+
+    // margin-top: -50px;
+    height: 670px;
+    .content-banner {
+      //   padding-bottom:10px ;
+
+      .banner-img {
+        max-height: 600px;
+
+        filter: drop-shadow(0 0 20px) url(#custom);
+        margin-bottom: 50px;
+        
+   
+      }
+    }
+  }
+  .box-cate {
+    gap: 20px;
+    justify-content: center;
+    margin-top: -100px;
+    filter: drop-shadow(0 0 10px);
+  }
+
+  .section-1 {
+    padding: 100px 100px;
+    .title {
+      text-align: center;
+      padding: 20px;
+      color: $main-color;
+  
+      font-family: k2d;
+    }
+    .content {
+    
+      justify-content: center;
+      align-items: center;
+      border:  5px solid $main-color;
+      .content-left {
+        position: relative;
+        flex: 50%;
+        max-width: 50%;
+        justify-content: center;
+        animation: jumpX linear 4s infinite alternate;
+       
+        img {
+          width: 500px;
+          height: 500px;
+          z-index: 1111;
+        }
+        
+      }
+      .content-right {
+        position: relative;
+
+        flex: 50%;
+        max-width: 50%;
+        justify-content: flex-start;
+        color: $main-color;
+    
+        .product-title{
+          font-size: 48px;
+        }
+        .price{
+          padding: 5px 0 30px 0;
+        }
+        .description{
+        max-width: 600px;
+        padding-bottom:40px ;
+        }
+        .product-button{
+          gap:50px;
+        }
+      }
+    }
+  }
+}

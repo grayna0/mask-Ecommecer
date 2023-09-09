@@ -16,13 +16,13 @@ export const ProductSingle = () => {
 
   const { register, handleSubmit, setValue } = useForm<Products>();
   const onSubmit: SubmitHandler<Products> = async (data) => {
-    console.log("", data.img);
+ 
 
     const updateRow = {
       img: img,
       inStock: data.inStock,
       price: data.price,
-      producer: data.producer,
+      producer: productData.acountActive.nickname,
       title: data.title,
       sale: data.sale,
       quantity: data.quantity,

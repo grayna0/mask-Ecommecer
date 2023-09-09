@@ -10,6 +10,7 @@ $md: 768px;
 $lg: 1024px;
 $xl: 1200px;
 $xxl: 1400px;
+@import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
 
 @mixin sm {
   @media screen and (max-width: $sm) {
@@ -90,4 +91,23 @@ color:black;
   min-width: 20px;
   min-height: 20px;
   cursor:pointer;
+}
+.ball{
+   
+    border-radius:100%;
+    background-image: linear-gradient(blue,red) ;
+    filter: blur(10px);
+    z-index: 11;
+
+ 
+}
+@keyframes jumpX{
+  from {top: 0px }
+  to {top: 50px}
+}
+@keyframes jumpY{
+  from {top: -250px }
+  to {top: -200px}
+
+
 }

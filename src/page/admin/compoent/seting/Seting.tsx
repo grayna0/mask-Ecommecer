@@ -3,15 +3,22 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { CiSettings } from "react-icons/ci";
-
+// import { useNavigate } from "react-router-dom";
+// import apiUrl from "../../../../services/Api";
+// import axios from "axios";
 export default function SetingAcount() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  // const navigate =useNavigate()
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleClose = async() => {
     setAnchorEl(null);
+    // navigate('/login')
+    // try{
+    //   await axios.get(`${apiUrl}/infoUsers`)
+    // }
   };
 
   return (

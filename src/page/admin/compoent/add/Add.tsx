@@ -19,7 +19,7 @@ const Add = ({ setClose }: { setClose: () => void }) => {
       sale: "",
       inStock: true,
       price: data.price,
-      producer: data.producer,
+      producer: AminContext.acountActive.nickname,
       title: data.title,
       quantity: data.quantity,
     };

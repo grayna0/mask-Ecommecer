@@ -1,0 +1,38 @@
+@import "../../styles/comon.scss";
+.title-head {
+  text-align: center;
+  padding: 20px;
+  color: $main-color;
+
+  font-family: k2d;
+}
+.cate-product {
+  flex-wrap: wrap;
+  padding: 50px 100px;
+  gap: 20px;
+  .box-img {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-basis: calc(100%/4 - 20px);
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 15px;
+    transition: all 0.5s;
+    overflow: hidden;
+    color: $main-color;
+    .img {
+      max-height: 300px;
+      width: 100%;
+      transition: all 0.5s;
+
+      &:hover {
+        transform: translateY(-20px);
+      }
+    }
+    &:hover {
+      background-color: rgb(248, 69, 69);
+      box-shadow: 10px 10px 0px rgba(255, 0, 0, 0.295);
+    }
+  }
+}

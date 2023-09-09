@@ -11,22 +11,22 @@ const navbar: Nav[] = [
   {
     id: 1,
     link: "/",
-    title: "Home",
+    title: "HOME",
   },
   {
     id: 2,
-    link: "/product",
-    title: "Product List",
+    link: "/shop",
+    title: "SHOP",
   },
   {
     id: 3,
     link: "/about",
-    title: "About Us",
+    title: "ABOUT US",
   },
   {
     id: 4,
     link: "/cart",
-    title: "Cart",
+    title: "CART",
   }
 ];
 

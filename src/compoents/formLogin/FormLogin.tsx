@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import apiUrl from "../../services/Api";
 import "./formlogin.scss";
-
-interface infoUser {
+// import { useParams } from "react-router-dom";
+export interface infoUser {
   nickname: string;
   password: string;
+  active: boolean;
+  id: number;
 }
 const LayOut = ({
   changeLayout,
@@ -18,9 +21,11 @@ const LayOut = ({
   const { register, handleSubmit } = useForm<infoUser>();
   const [success, setSuccess] = useState<boolean>(false);
   const [infouser, setInfouser] = useState<infoUser[]>([]);
-
+  const navigate = useNavigate();
+ 
   useEffect(() => {
-    fetchData();
+   fetchData();
+   return
   }, [success]);
 
   const fetchData = async () => {
@@ -34,22 +39,33 @@ const LayOut = ({
   };
 
   const onSubmit: SubmitHandler<infoUser> = async (data) => {
-    const checkLogin =infouser.find(user => user.nickname === data.nickname);
+    const checkLogin = infouser.find((user) => user.nickname === data.nickname);
+
     if (ChangeLayout) {
       const infoUser = {
         nickname: data.nickname,
         password: data.password,
+        active: false,
       };
 
       await axios.post(`${apiUrl}/infoUsers`, infoUser);
       setSuccess((success) => !success);
-    } else if(checkLogin?.nickname === data.nickname &&
-      checkLogin.password === data.password) {
-      console.log(222);
-      
+    } else if (
+      checkLogin?.nickname === data.nickname &&
+      checkLogin.password === data.password
+    ) {
+     
+      navigate("/admin");
+      try {
+        await axios.put(`${apiUrl}/infoUsers/${checkLogin?.id}`, {
+          ...checkLogin,
+          active: true,
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
-
 
   return (
     <div className="content-left">
@@ -72,7 +88,9 @@ const LayOut = ({
             placeholder="Passwordss..."
           />
           <div className="bottom-form">
-            <button onClick={!ChangeLayout ?  handleSubmit(onSubmit) : changeLayout}>
+            <button
+              onClick={!ChangeLayout ? handleSubmit(onSubmit) : changeLayout}
+            >
               Login
             </button>
             <button>

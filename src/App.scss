@@ -1,7 +1,10 @@
+@import "./styles/comon.scss";
 
 .Header {
   align-items: center;
-  
+  padding-top: 20px;
+
+
   .logo{
     flex-grow: 1;
   }
@@ -12,7 +15,14 @@
     flex-wrap: wrap;
     gap: 2em;
     list-style: none;
-    
+    li{
+      a{
+
+        color:$main-color;
+        font-size: 22px;
+        font-family: 'K2D', sans-serif;;
+      }
+    }
     
   }
   .right-nav {

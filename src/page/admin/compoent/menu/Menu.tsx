@@ -1,12 +1,12 @@
 import { menu } from "../../../../services/data";
 
-import {  Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import "../../../../styles/admin/menuad.scss"
+import "../../../../styles/admin/menuad.scss";
+import { memo } from "react";
 
 const Menu = () => {
   return (
-   
     <div className="menu">
       {menu.map((item) => (
         <div className="menu-list" key={item.id}>
@@ -23,11 +23,8 @@ const Menu = () => {
           ))}
         </div>
       ))}
-      
     </div>
-    
-  
   );
 };
 
-export default Menu;
+export default memo(Menu);

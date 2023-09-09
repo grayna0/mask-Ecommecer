@@ -6,28 +6,39 @@ import { Outlet } from "react-router-dom";
 import { useEffect, useState, createContext } from "react";
 import axios from "axios";
 import apiUrl from "../../services/Api";
+import { infoUser } from "../../compoents/formLogin/FormLogin";
+
 
 export const productContext = createContext<any>(undefined);
 const Admin = () => {
   const [products, setProducts] = useState<Products[]>([]);
   const [UpdateProduct, setUpdateProduct] = useState<Products | null>(null);
+  const [acountActive,setAccActive] = useState<infoUser>()
+  
+
 
   useEffect(() => {
     fetchData();
+    return
   }, [UpdateProduct]);
   const fetchData = async () => {
     try {
       const response = await axios.get(`${apiUrl}/products`);
+      const responseUser = await axios.get(`${apiUrl}/infoUsers`);
       const jsonData = response.data;
+      const accACtive=responseUser.data.find((user:infoUser) => user.active === true);
       setProducts(jsonData);
+      setAccActive(accACtive)
     } catch (error) {
       console.error("Lỗi khi lấy dữ liệu:", error);
     }
   };
   
+
+
   return (
     <productContext.Provider
-      value={{ products, setProducts, setUpdateProduct }}
+      value={{ products, setProducts, setUpdateProduct,acountActive }}
       >
       <Container className="main" maxWidth={false}>
         <Navbar />
@@ -46,7 +57,7 @@ const Admin = () => {
 
 export interface Products {
   id: number;
-  img: FileList |File[];
+  img: FileList | File[] ;
   title: string;
   color: string;
   producer: string;
@@ -55,6 +66,7 @@ export interface Products {
   createdAt: string;
   inStock: boolean;
   description: string;
-  quantity:number
+  quantity:number;
+  star:number
 }
 export default Admin;
