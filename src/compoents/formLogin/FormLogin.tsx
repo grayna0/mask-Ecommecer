@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import apiUrl from "../../services/Api";
 import "./formlogin.scss";
-// import { useParams } from "react-router-dom";
+
+
+
 export interface infoUser {
   nickname: string;
   password: string;
@@ -22,10 +24,11 @@ const LayOut = ({
   const [success, setSuccess] = useState<boolean>(false);
   const [infouser, setInfouser] = useState<infoUser[]>([]);
   const navigate = useNavigate();
- 
+
   useEffect(() => {
-   fetchData();
-   return
+    fetchData();
+
+    return;
   }, [success]);
 
   const fetchData = async () => {
@@ -54,8 +57,7 @@ const LayOut = ({
       checkLogin?.nickname === data.nickname &&
       checkLogin.password === data.password
     ) {
-     
-      navigate("/admin");
+      navigate("/admin/dashboard");
       try {
         await axios.put(`${apiUrl}/infoUsers/${checkLogin?.id}`, {
           ...checkLogin,

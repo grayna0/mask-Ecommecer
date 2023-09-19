@@ -33,3 +33,14 @@
 .flex {
   display: flex;
 }
+
+@keyframes jumpX{
+  from {top: 0px }
+  to {top: 50px}
+}
+@keyframes jumpY{
+  from {top: -250px }
+  to {top: -200px}
+
+
+}

@@ -10,12 +10,16 @@
     // margin-top: -50px;
     height: 670px;
     .content-banner {
-      //   padding-bottom:10px ;
+      position: relative;
 
+      svg{
+        position: absolute;
+        top: 0;
+      }
       .banner-img {
         max-height: 600px;
 
-        filter: drop-shadow(0 0 20px) url(#custom);
+        filter: url(#custom);
         margin-bottom: 50px;
         
    

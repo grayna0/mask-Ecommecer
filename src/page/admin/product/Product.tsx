@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Products } from "../Admin";
+import { Product } from "../Admin";
 import { useParams } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "./productSingle.scss";
@@ -11,12 +11,14 @@ import apiUrl from "../../../services/Api";
 export const ProductSingle = () => {
   const { id } = useParams<any>();
   const productData = useContext(productContext);
-  const [product, setProduct] = useState<Products | null>(null);
+  const [product, setProduct] = useState<Product | null>(null);
   const [img, setImg] = useState("");
 
-  const { register, handleSubmit, setValue } = useForm<Products>();
-  const onSubmit: SubmitHandler<Products> = async (data) => {
+
+  const { register, handleSubmit, setValue } = useForm<Product>();
+  const onSubmit: SubmitHandler<Product> = async (data) => {
  
+
 
     const updateRow = {
       img: img,
@@ -27,17 +29,22 @@ export const ProductSingle = () => {
       sale: data.sale,
       quantity: data.quantity,
       description: data.description,
+      category: data.category,
     };
+
 
     if (img) {
       try {
+       
         productData.setUpdateProduct(updateRow);
-        await axios.put(`${apiUrl}/products/${product?.id}`, updateRow);
+        await axios.put(`${apiUrl}/products/${product?.id}`,updateRow);
       } catch (error) {
         console.log("error", error);
       }
     } else {
       try {
+     
+
         const newProduct = { ...updateRow, img: product?.img };
         productData.setUpdateProduct(newProduct);
         await axios.put(`${apiUrl}/products/${product?.id}`, newProduct);
@@ -45,10 +52,15 @@ export const ProductSingle = () => {
         console.log("error", error);
       }
     }
+  
   };
   useEffect(() => {
-    const Data = productData.products.find(
-      (item: Products) => item.title === id
+    InfoProductSetToForm()
+    console.log("2",product);
+  }, [id, productData.products, setValue, img]);
+  const InfoProductSetToForm =async ()=>{
+    const Data = await productData.products.find(
+      (item: Product) => item.title === id
     );
     if (Data) {
       setProduct(Data);
@@ -60,7 +72,8 @@ export const ProductSingle = () => {
       setValue("quantity", Data.quantity);
       setValue("inStock", Data.inStock);
     }
-  }, [id, productData.products, setValue, img]);
+
+  }
     const handleImg = (e: ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
               if (file) {
@@ -108,9 +121,14 @@ export const ProductSingle = () => {
             {...register("quantity")}
             placeholder="Quantity..."
           />
-          <h2> InStock</h2>
+          <h2> Category</h2>
+          <select id="category" {...register("category")}>
+            <option  value="cate1">cate1</option>
+            <option  value="cate2">cate2</option>
+            <option  value="cate3">cate3</option>
+          </select>
 
-          <input type="text" {...register("inStock")} />
+      
           <input type="submit" />
         </div>
       </form>

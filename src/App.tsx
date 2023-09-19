@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes  } from "react-router-dom";
+import { BrowserRouter , Route, Routes } from "react-router-dom";
 import About from "./page/about-us/About";
 import Cart from "./page/cart/Cart";
 import Checkout from "./page/Checkout";
-import ProductDetail from "./page/shop/ProductDetail";
+import ShopProducts from "./page/shop/ProductShop";
 import Layout from "./compoents/layout/Index";
 import Login from "./page/Login";
-import Home from "./page/Home/home" ;
+import Home from "./page/Home/home";
 import "./App.scss";
 import "./styles/comon.scss";
 import Admin from "./page/admin/Admin";
@@ -16,27 +16,27 @@ import Dashboard from "./page/admin/dashboard/Dashboard";
 import Products from "./page/admin/products/Products";
 import { ProductSingle } from "./page/admin/product/Product";
 import User from "./page/admin/user/User";
+import PgSProduct from "./page/productSingePage/PgSProduct";
+import { Provider } from "react-redux";
+import store from "./store/store";
+
 
 function App() {
-
-
-
   return (
-    <Router>
+    <Provider store={store}>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout /> } >
           <Route index element={<Home />} />
-          <Route path="/product" element={<ProductDetail />} />
+          <Route path="/shop" element={<ShopProducts />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/about" element={<About />} />
-      
+          <Route path="/product/:title" element={<PgSProduct />} />
         </Route>
-      </Routes>
-      <Routes>
-      <Route path="/login" element={<Login />} />
-      </Routes>
-      <Routes>
+
+        <Route path="/login" element={<Login />} />
+
         <Route path="/admin" element={<Admin />}>
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/users" element={<Users />} />
@@ -45,7 +45,8 @@ function App() {
           <Route path="/admin/product/:id" element={<ProductSingle />} />
         </Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
+    </Provider>
   );
 }
 

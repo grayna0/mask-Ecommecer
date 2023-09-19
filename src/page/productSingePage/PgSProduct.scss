@@ -1,0 +1,93 @@
+@import "../../styles/comon.scss";
+
+.container-pg{
+    color: $main-color;
+  padding: 100px 200px 0px 200px;
+  .title-lg{
+    h1{
+
+      font-size: 62px;
+    }
+  }
+    .banner-product{
+      max-height: 600px;
+        display: flex;
+        justify-content: center;
+        margin:50px  0 50px 0;
+       
+        border-radius: 20px;
+        background-color: white;
+        position: relative;
+    // box-shadow: 0 0px 30px black;
+        .banner-product-img{
+            filter: drop-shadow(10px 20px 20px black);
+            transform: scale(.8);
+            transition: all .5s;
+            &:hover{
+                transform: scale(.9);
+            filter: drop-shadow(10px 20px 20px black);
+
+            }
+    
+        }
+    }
+    .flex{
+      
+      .flex-basic-50{
+        .Descreption{
+          // background-color: $soft-color;
+          // color: $main-bg;
+          // padding: 20px;
+          h2{
+           font-family: ChakraSemiBold;
+          }
+           .decript{
+             margin: 30px 0;
+             font-family: ChakraLight;
+           }
+        }
+      }
+    }
+    .heighlight{
+      margin:20px 0;
+      background-color: $soft-color;
+      color: $main-bg;
+      padding: 20px;
+     .flex{
+      ul{
+        li{
+          margin-top: 10px;
+        }
+      }
+     }
+    }
+    .QuestionA{
+      .accordion{
+   
+       
+       
+        h3{
+       
+          border-radius: 15px;
+          border: 1px  solid $soft-color;
+          margin-top: 10px;
+          padding: 10px 10px;
+          cursor: pointer;
+        
+          font-family: ChakraSemibold;
+        
+          &:hover{
+            background-color:#c4c1c13d;
+          }
+          &:active{
+            background-color:$soft-color;
+          }
+        }
+        p{
+          padding: 10px 10px;
+          transition: all 5s;
+        }
+      }
+
+    }
+}

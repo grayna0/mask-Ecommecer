@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Product } from "../../products/Products";
+
 import "./add.scss";
 import { memo } from "react";
 import axios from "axios";
 import apiUrl from "../../../../services/Api";
-import { productContext } from "../../Admin";
+import { Product, productContext } from "../../Admin";
 
 
 const Add = ({ setClose }: { setClose: () => void }) => {

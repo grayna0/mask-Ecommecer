@@ -5,22 +5,9 @@ import Add from "../compoent/add/Add";
 import DataTable from "./List-product";
 import { useState, useContext } from "react";
 
-import { productContext } from "../Admin";
+import { Product, productContext } from "../Admin";
 
-export interface Product {
-  id: number;
-  img: FileList | File[] ;
-  title: string;
-  color: string;
-  producer: string;
-  price: number;
-  sale: number;
-  createdAt: string;
-  inStock: boolean;
-  description: string;
-  quantity:number;
-  star:number
-}
+
 const Products = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const productData = useContext(productContext);

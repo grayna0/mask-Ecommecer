@@ -7,12 +7,13 @@ import { useEffect, useState, createContext } from "react";
 import axios from "axios";
 import apiUrl from "../../services/Api";
 import { infoUser } from "../../compoents/formLogin/FormLogin";
+import Dashboard from "./dashboard/Dashboard";
 
 
 export const productContext = createContext<any>(undefined);
 const Admin = () => {
-  const [products, setProducts] = useState<Products[]>([]);
-  const [UpdateProduct, setUpdateProduct] = useState<Products | null>(null);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [UpdateProduct, setUpdateProduct] = useState<Product | null>(null);
   const [acountActive,setAccActive] = useState<infoUser>()
   
 
@@ -38,7 +39,8 @@ const Admin = () => {
 
   return (
     <productContext.Provider
-      value={{ products, setProducts, setUpdateProduct,acountActive }}
+      value={{ products, setProducts, setUpdateProduct,acountActive,
+    }}
       >
       <Container className="main" maxWidth={false}>
         <Navbar />
@@ -55,11 +57,11 @@ const Admin = () => {
   );
 };
 
-export interface Products {
+export interface Product {
   id: number;
   img: FileList | File[] ;
   title: string;
-  color: string;
+  color: string[];
   producer: string;
   price: number;
   sale: number;
@@ -67,6 +69,8 @@ export interface Products {
   inStock: boolean;
   description: string;
   quantity:number;
-  star:number
+  star:number,
+  category:string,
+  comment:string[]
 }
 export default Admin;

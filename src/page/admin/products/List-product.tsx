@@ -5,7 +5,7 @@ import axios from "axios";
 import { AiFillDelete } from "react-icons/ai";
 import { BsCheck } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
-import { Product } from "./Products";
+import {Product} from "../Admin"
 import { infoUser } from "../../../compoents/formLogin/FormLogin";
 
 export default function DataTable({

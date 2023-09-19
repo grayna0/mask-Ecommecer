@@ -5,12 +5,12 @@ import { Outlet } from "react-router-dom";
 import React, { useEffect, useState ,createContext} from "react";
 import apiUrl from "../../services/Api";
 import axios from "axios";
-import { Products } from "../../page/admin/Admin";
+import { Product } from "../../page/admin/Admin";
 import Footer from "../footer/Footer";
 
 export const ProductContext=createContext<any>(undefined)
 const Layout = () => {
-  const [products, setProducts] = useState<Products[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
 console.log("pro",products);
 
   
@@ -35,7 +35,7 @@ console.log("pro",products);
       <Container className="container" maxWidth={false} style={{ padding: "0" }}>
         <ProductContext.Provider value={{products}}>
 
-        <Outlet />
+        <Outlet  />
         </ProductContext.Provider>
         <Footer/>
       </Container>
