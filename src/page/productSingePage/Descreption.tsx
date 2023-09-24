@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react";
+
+import Question from "../../compoents/question/Question";
 import { Product } from "../admin/Admin";
-import {questions} from "../../services/data"
+
 
 const DeltailProduct =() =>{
   return (
@@ -25,34 +26,8 @@ const DeltailProduct =() =>{
     </>
   )
 }
+ 
 
-const Question=()=>{
-  const [showAnswer, setShowAnswer]=useState<boolean[]>([])
-  console.log(showAnswer);
-  
-  const handleShowAnswer=(i:number)=>{
-  
-
-      setShowAnswer(showAnswer=>{
-        const updateShowQuestion=[...showAnswer]
-        updateShowQuestion[i]= !updateShowQuestion[i]
-        return updateShowQuestion
-      })
-    
-  }
-  return (
-    <div className="QuestionA">
-      <h2>Popular Questions</h2>
-    {questions.map((item:any,i:number)=>(
-      <div className="accordion" key={item.question} >
-      <h3 onClick={()=>handleShowAnswer(i)}>{item.question}</h3>
-      {showAnswer[i] && <p>{item.anwers}</p>}
-
-      </div>
-    ))}
-    </div>
-  )
-}
 
 const Descreption = ({ product }: { product: Product }) => {
 

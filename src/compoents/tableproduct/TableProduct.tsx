@@ -26,9 +26,9 @@ const TableProduct = ({
 
   return (
     <>
-      <h2 className="title-head"> CATE</h2>
+ 
 
-      <div className="cate-product flex" style={style}>
+      <div className="cate-product flex " style={style}>
         {productData.map((item) => {
           return (
             <div className="box-product" key={item.id}>
@@ -37,7 +37,7 @@ const TableProduct = ({
                 onClick={() => toProductPage(item.title)}
               >
                 <img className="img" src={`/${item.img}`} alt={`${item.img}`} />
-                <h3 className="title">{item.title}</h3>
+                <h3 className="title">{item.title.length >20 ?`${item.title.slice(0,20)}...`:item.title}</h3>
                 <h3 className="price">{item.price}</h3>
               </div>
               {showaddToCart && (

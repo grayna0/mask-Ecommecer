@@ -1,5 +1,31 @@
 
 
+export const menuHome=[
+  {
+    path:"/",
+    element:"<Home/>",
+    title:"Home",
+    
+  },
+  {
+    path:"/shop",
+    element:"<ProductShop/>",
+    title:"Shop",
+    
+  },
+  {
+    path:"/about",
+    element:"<Home/>",
+    title:"About Us",
+    
+  },  {
+    path:"/cart",
+    element:"<ShopCart/>",
+    title:"Cart",
+    
+  }
+
+]
 
 
 

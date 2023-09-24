@@ -1,14 +1,12 @@
 import React from "react";
 
-
 const Banner = () => {
   return (
     <div className="banner">
-
       <div className="content-banner ">
         <svg>
           <filter id="custom">
-            <feTurbulence type="turbulence" baseFrequency="0.01 0.003">
+            <feTurbulence type="turbulence" baseFrequency="0.01 0.003" >
               <animate
                 attributeName="baseFrequency"
                 from="0.01 0.003"
@@ -18,6 +16,7 @@ const Banner = () => {
               ></animate>
             </feTurbulence>
             <feDisplacementMap
+             
               in="SourceGraphic"
               scale="50"
             ></feDisplacementMap>

@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter , Route, Routes } from "react-router-dom";
 import About from "./page/about-us/About";
-import Cart from "./page/cart/Cart";
-import Checkout from "./page/Checkout";
+import Checkout from "./page/cart/Checkout";
+import ShopCart from "./page/cart/ShopCart";
 import ShopProducts from "./page/shop/ProductShop";
 import Layout from "./compoents/layout/Index";
 import Login from "./page/Login";
@@ -29,8 +29,8 @@ function App() {
         <Route path="/" element={<Layout /> } >
           <Route index element={<Home />} />
           <Route path="/shop" element={<ShopProducts />} />
-          <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/cart" element={<ShopCart />} />
           <Route path="/about" element={<About />} />
           <Route path="/product/:title" element={<PgSProduct />} />
         </Route>

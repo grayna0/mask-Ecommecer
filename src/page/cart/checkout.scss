@@ -1,0 +1,59 @@
+.container-pg {
+  justify-content: center;
+
+  .checkout-form {
+    flex: 70%;
+    max-width: calc(70% - 30px);
+    padding: 0px 100px;
+
+    label {
+      font-size: 18px;
+      flex: 50%;
+      display: block;
+      margin-top: 20px;
+      input,
+      textarea {
+        color: black;
+        border-radius: 5px;
+        padding: 20px 20px;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+  .oder {
+    color: black;
+    flex: 30%;
+    max-width: calc(30% - 30px);
+    background-color: #f6f6f6;
+    padding: 0 20px;
+    .oder-tb {
+      border-collapse: collapse;
+      .oder-style-tr {
+        border-bottom: 1px solid black;
+        .oder-title {
+          font-weight: 600;
+          font-size: 18px;
+        }
+        td {
+          padding: 40px 0;
+        }
+      }
+      .list-items {
+        td {
+          padding: 10px 0;
+        }
+      }
+      .shipping {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        .oder-title {
+            font-weight: 600;
+            font-size: 18px;
+          }
+          td {
+            padding: 40px 0;
+          }
+      }
+    }
+  }
+}

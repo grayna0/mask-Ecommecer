@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import Boxs from "../../compoents/box/Box";
 import Ball from "../../compoents/ball/Ball";
 import TableProduct from "../../compoents/tableproduct/TableProduct";
+import Question from "../../compoents/question/Question";
+
 const RelateProduct = ({ productData }: { productData: Product[] }) => {
   const [prev, setPrev] = useState<number>(0);
   const handlePrev = () => {
@@ -103,6 +105,13 @@ const Home = () => {
         productData={productsContext.products}
         showaddToCart={false}
       />
+      <div className=" container-pg flex">
+    <div className="flex-auto">left</div>
+    <div className="flex-auto max-w-2xl">
+
+      <Question />
+    </div>
+      </div>
     </>
   );
 };

@@ -15,19 +15,21 @@ export const ProductSingle = () => {
   const [img, setImg] = useState("");
 
 
+
   const { register, handleSubmit, setValue } = useForm<Product>();
   const onSubmit: SubmitHandler<Product> = async (data) => {
  
 
 
-    const updateRow = {
+
+    const updateRow = {...product,
       img: img,
       inStock: data.inStock,
-      price: data.price,
-      producer: productData.acountActive.nickname,
+      price: Number(data.price),
+      // producer: productData.acountActive.nickname,
       title: data.title,
-      sale: data.sale,
-      quantity: data.quantity,
+      sale: Number(data.sale),
+      quantity: Number(data.quantity),
       description: data.description,
       category: data.category,
     };
@@ -58,8 +60,8 @@ export const ProductSingle = () => {
     InfoProductSetToForm()
     console.log("2",product);
   }, [id, productData.products, setValue, img]);
-  const InfoProductSetToForm =async ()=>{
-    const Data = await productData.products.find(
+  const InfoProductSetToForm = ()=>{
+    const Data =  productData.products.find(
       (item: Product) => item.title === id
     );
     if (Data) {
@@ -82,7 +84,7 @@ export const ProductSingle = () => {
     }
   return (
     <div className="container">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="container-form">
         <div className="content-left">
           <div className="content-title">
             <h2> Title</h2>

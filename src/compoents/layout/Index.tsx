@@ -11,9 +11,7 @@ import Footer from "../footer/Footer";
 export const ProductContext=createContext<any>(undefined)
 const Layout = () => {
   const [products, setProducts] = useState<Product[]>([]);
-console.log("pro",products);
-
-  
+  const pageList=products.map(product =>product.category)
   useEffect(() => {
     getData()
 
@@ -37,7 +35,7 @@ console.log("pro",products);
 
         <Outlet  />
         </ProductContext.Provider>
-        <Footer/>
+        <Footer pageList={pageList}/>
       </Container>
     </Container>
   );
