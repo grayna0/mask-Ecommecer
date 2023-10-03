@@ -7,7 +7,7 @@
       "producer": "1@gmail.com",
       "title": "Lorem Ipsum 2",
       "sale": 0,
-      "quantity": 499,
+      "quantity": 496,
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "category": "cate1",
       "id": 1
@@ -80,6 +80,7 @@
       "title": "Lorem Ipsum is simply copycopy",
       "sale": "",
       "quantity": 999,
+      "category": "cate1",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "id": 46,
       "star": 5
@@ -93,15 +94,34 @@
       "producer": "garyan@gmail.com",
       "title": "Lorem Ipsum is simply copycopycopy",
       "quantity": 88,
+      "category": "cate1",
       "star": 5,
       "id": 48
     }
   ],
   "infoUsers": [
     {
-      "nickname": "1@gmail.com",
+      "nickname": "garyan@gmail.com",
       "password": "1",
       "active": true,
+      "id": 2
+    },
+    {
+      "nickname": "grayna0@gmail.com",
+      "password": "12345678",
+      "id": 3
+    },
+    {
+      "nickname": "garya123123n@gmail.com",
+      "password": "123123123123",
+      "id": 4
+    }
+  ],
+  "countdown": [
+    {
+      "days": "30",
+      "month": "09",
+      "year": "2023",
       "id": 1
     }
   ]

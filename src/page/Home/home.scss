@@ -6,13 +6,10 @@
     justify-content: center;
     background-image: linear-gradient($main-bg, rgba(68, 0, 82, 0.623));
     align-items: flex-end;
-
-    // margin-top: -50px;
     height: 670px;
     .content-banner {
       position: relative;
-
-      svg{
+      svg {
         position: absolute;
         top: 0;
       }
@@ -21,8 +18,6 @@
 
         filter: url(#custom);
         margin-bottom: 50px;
-        
-   
       }
     }
   }
@@ -39,50 +34,123 @@
       text-align: center;
       padding: 20px;
       color: $main-color;
-  
+
       font-family: k2d;
     }
     .content {
-    
       justify-content: center;
       align-items: center;
-      border:  5px solid $main-color;
+      border: 5px solid $main-color;
+      padding: 50px 0px;
+      // background-color: white;
       .content-left {
         position: relative;
         flex: 50%;
         max-width: 50%;
         justify-content: center;
-        animation: jumpX linear 4s infinite alternate;
-       
+
+        .active {
+          animation: active-img 3s ease-in-out;
+          transform: translate(0px);
+        }
         img {
           width: 500px;
           height: 500px;
           z-index: 1111;
+          filter: drop-shadow(0 100px 70px black);
         }
-        
       }
       .content-right {
         position: relative;
-
+        overflow: hidden;
         flex: 50%;
         max-width: 50%;
         justify-content: flex-start;
         color: $main-color;
-    
-        .product-title{
+        .product-title {
           font-size: 48px;
         }
-        .price{
+        .price {
           padding: 5px 0 30px 0;
         }
-        .description{
-        max-width: 600px;
-        padding-bottom:40px ;
+        .description {
+          max-width: 600px;
+          padding-bottom: 40px;
         }
-        .product-button{
-          gap:50px;
+        .product-button {
+          gap: 50px;
         }
       }
     }
+  }
+}
+.effect-upt {
+  animation-name: upText;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+.effect-up-05s {
+  animation: effect-up-05s 1s ease-in-out;
+}
+.effect-up-3s {
+  animation: effect-up-3s 1.2s ease-in-out;
+}
+.effect-up-4s {
+  animation: effect-up-4s 1.5s ease-in-out;
+}
+.effect-up-5s {
+  animation: effect-up-5s 1.8s ease-in-out;
+}
+@keyframes effect-up-05s {
+  from {
+    transform: translate(0rem, 10rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes effect-up-3s {
+  from {
+    transform: translate(0rem, 10rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes effect-up-4s {
+  from {
+    transform: translate(0rem, 10rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes effect-up-5s {
+  from {
+    transform: translate(0rem, 10rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes upText {
+  from {
+    transform: translate(0rem, 10rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes active-img {
+  from {
+    transform: translate(20rem, 0rem);
+    filter: blur(10px);
+    opacity: 0.1;
+    scale: 0.5;
+    filter: drop-shadow(0 100px 70px black);
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
   }
 }

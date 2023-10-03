@@ -4,12 +4,8 @@ import "./question.scss"
 
  const Question=()=>{
     const [showAnswer, setShowAnswer]=useState<boolean[]>([])
-    console.log(showAnswer);
-    
     const handleShowAnswer=(i:number)=>{
-    
-  
-        setShowAnswer(showAnswer=>{
+    setShowAnswer(showAnswer=>{
           const updateShowQuestion=[...showAnswer]
           updateShowQuestion[i]= !updateShowQuestion[i]
           return updateShowQuestion

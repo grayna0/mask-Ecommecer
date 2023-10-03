@@ -14,7 +14,7 @@ export const productContext = createContext<any>(undefined);
 const Admin = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [UpdateProduct, setUpdateProduct] = useState<Product | null>(null);
-  const [acountActive,setAccActive] = useState<infoUser>()
+
   
 
 
@@ -25,11 +25,9 @@ const Admin = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(`${apiUrl}/products`);
-      const responseUser = await axios.get(`${apiUrl}/infoUsers`);
       const jsonData = response.data;
-      const accACtive=responseUser.data.find((user:infoUser) => user.active === true);
       setProducts(jsonData);
-      setAccActive(accACtive)
+    
     } catch (error) {
       console.error("Lỗi khi lấy dữ liệu:", error);
     }
@@ -39,7 +37,7 @@ const Admin = () => {
 
   return (
     <productContext.Provider
-      value={{ products, setProducts, setUpdateProduct,acountActive,
+      value={{ products, setProducts, setUpdateProduct
     }}
       >
       <Container className="main" maxWidth={false}>

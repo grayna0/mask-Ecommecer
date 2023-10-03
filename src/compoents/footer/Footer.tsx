@@ -8,6 +8,8 @@ const Footer = ({pageList}:{pageList:string[]}) => {
          const pageListFillter= [...new Set( pageList.map(page =>
           page
         ))]
+        console.log(pageListFillter);
+        
    
   return (
     <div className="flex footer container-pg">
@@ -32,17 +34,13 @@ const Footer = ({pageList}:{pageList:string[]}) => {
       </div>
       <div className="col2">
         <p>Categories</p>
-        <ul>
-        {pageListFillter.map(page =>(
-          <li className="my-3">{page}</li>
-        ))}
-        </ul>
+       <ListCategoryFooter pageListFillter={pageListFillter}/>
       </div>
       <div className="col3">
         <p>Page</p>
         <ul>
           {menuHome.map(menu =>(
-            <li className="my-3">{menu.title}</li>
+            <li className="my-3" key={menuHome.indexOf(menu)}>{menu.title}</li>
           ))}
         </ul>
       </div>
@@ -55,3 +53,12 @@ const Footer = ({pageList}:{pageList:string[]}) => {
 };
 
 export default Footer;
+const ListCategoryFooter = ( {pageListFillter}:{pageListFillter:string[]})=>{
+  return (
+    <ul>
+    {pageListFillter.map(page =>(
+      <li className="my-3" key={pageListFillter.indexOf(page)}>{page}</li>
+    ))}
+    </ul>
+  )
+}

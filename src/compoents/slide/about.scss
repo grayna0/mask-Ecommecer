@@ -1,0 +1,40 @@
+.productcer-wrap{
+
+    height: 22rem;
+    width: 600px;
+    background-color: beige;
+    padding: 50px 50px;
+    border-radius: 18px;
+    overflow: hidden;
+    
+    .productcer-list{
+    
+        opacity: 1;
+        color: black;
+        .desc{
+            margin: 20px 0 ;
+            .rotate{
+                rotate: 180deg;
+            }
+        }
+        .productcer{
+            margin: 20px 0px 0 -40px;
+            align-items: center;
+            .avatar{
+               max-width: 10rem;
+            }
+        }
+      
+    }
+    .active{
+        transform: translateX(0);
+        transition: translateX 2s ease-in-out;
+        animation: ex 0.5s ease-in-out;
+    }
+ 
+}
+
+@keyframes ex {
+from{transform:translateX(400px);opacity:0.2}
+to { transform:translateX(0px);opacity:1}
+}

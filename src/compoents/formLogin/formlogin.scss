@@ -21,6 +21,7 @@
         background-color: rgba(0, 255, 255, 0.678);
         padding:50px 50px;
         border-radius:10px;
+        max-width: 400px;
         .title-form{
             margin-bottom:30px ;
 
@@ -30,6 +31,7 @@
 
         }
         input:not([type="submit"]){
+            width: 100%;
             border-radius:5px;
             padding: 10px 20px;
             margin:10px 0;

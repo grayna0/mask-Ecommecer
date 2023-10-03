@@ -26,7 +26,7 @@ const Layout = () => {
     }
   };
   return (
-    <Container disableGutters={true} maxWidth={false}>
+    <Container disableGutters={true} maxWidth={false} >
       <Container maxWidth="lg">
         <Header />
       </Container>

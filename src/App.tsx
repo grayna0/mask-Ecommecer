@@ -1,24 +1,24 @@
-import React from "react";
+
+import "./App.scss";
+import "./styles/comon.scss";
 import { BrowserRouter , Route, Routes } from "react-router-dom";
 import About from "./page/about-us/About";
 import Checkout from "./page/cart/Checkout";
 import ShopCart from "./page/cart/ShopCart";
 import ShopProducts from "./page/shop/ProductShop";
 import Layout from "./compoents/layout/Index";
-import Login from "./page/Login";
 import Home from "./page/Home/home";
-import "./App.scss";
-import "./styles/comon.scss";
 import Admin from "./page/admin/Admin";
 import Users from "./page/admin/users/Users";
-
 import Dashboard from "./page/admin/dashboard/Dashboard";
 import Products from "./page/admin/products/Products";
-import { ProductSingle } from "./page/admin/product/Product";
+import Login from "./page/loginUsers";
 import User from "./page/admin/user/User";
 import PgSProduct from "./page/productSingePage/PgSProduct";
+import { ProductSingle } from "./page/admin/product/Product";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import AdminCountDown from "./page/admin/Calendar/AdminCountDown";
 
 
 function App() {
@@ -43,6 +43,7 @@ function App() {
           <Route path="/admin/user" element={<User />} />
           <Route path="/admin/products" element={<Products />} />
           <Route path="/admin/product/:id" element={<ProductSingle />} />
+          <Route path="/admin/calendar" element={<AdminCountDown />} />
         </Route>
       </Routes>
     </BrowserRouter>
