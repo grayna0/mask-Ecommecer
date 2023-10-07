@@ -1,8 +1,14 @@
 @import "../../styles/comon.scss";
 
 .container-pg{
-    color: $main-color;
+  color: $main-color;
   padding: 100px 200px 0px 200px;
+  @include xxl{
+    padding: 100px 100px 0px 100px; 
+  }
+  @include lg{
+    padding: 100px 50px 0px 50px; 
+  }
   .title-lg{
     h1{
 
@@ -18,7 +24,7 @@
         border-radius: 20px;
         background-color: white;
         position: relative;
-    // box-shadow: 0 0px 30px black;
+
         .banner-product-img{
             filter: drop-shadow(10px 20px 20px black);
             transform: scale(.8);

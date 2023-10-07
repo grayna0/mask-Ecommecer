@@ -31,6 +31,8 @@ const Home = () => {
   }, []);
   useEffect(() => {
     filterBestProduct();
+    
+    
     return;
   }, [productsContext.products]);
   const filterBestProduct = () => {
@@ -53,6 +55,7 @@ const Home = () => {
         style={tableStyle}
         productData={productsContext.products}
         showaddToCart={false}
+        showErrorSreach={true}
       />
       </div>
       <div className="section-4 container-pg flex">
@@ -76,13 +79,13 @@ const RelateProduct = ({ productData }: { productData: Product[] }) => {
   const effectUp=document.querySelectorAll(".effect")
   console.log(effectUp);
   
-  useEffect(() => {
-    const slideAutos=  setInterval(() =>{
-      handleChageSlide("prev")
-      },6000)
+  // useEffect(() => {
+  //   const slideAutos=  setInterval(() =>{
+  //     handleChageSlide("prev")
+  //     },6000)
     
-    return () => clearInterval(slideAutos);
-  },[prev])
+  //   return () => clearInterval(slideAutos);
+  // },[prev])
   const handleChageSlide = (agrs:string) => {
     activeImg?.classList.remove("active")
     effectUp[0]?.classList.remove("effect-upt")
@@ -145,10 +148,10 @@ const RelateProduct = ({ productData }: { productData: Product[] }) => {
           </p>
           <div className="flex product-button  effect effect-up-5s">
             <button className="button-shop">
-              <Link to=""></Link>Shop
+              <Link to="/shop">Shop</Link>
             </button>
-            <button className="add-to-cart">
-              <Link to=""></Link>View more
+            <button  >
+              <Link to={`/product/${productData[prev]?.title}`} className="add-to-cart">View more</Link>
             </button>
           </div>
         </div>

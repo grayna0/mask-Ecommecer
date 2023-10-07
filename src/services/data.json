@@ -15,7 +15,7 @@
     {
       "img": "product6.png",
       "inStock": true,
-      "price": "900",
+      "price": 900,
       "producer": "1@gmail.com",
       "title": "CYBERPUNK MASK 02",
       "sale": "",

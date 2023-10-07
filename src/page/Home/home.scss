@@ -142,6 +142,8 @@
     }
   }
   .cate-product {
+    padding: 50px 200px;
+
     @include xxxl {
       padding: 50px 20px;
       .box-product {
@@ -157,6 +159,14 @@
         .box-img {
           img {
             width: 200px;
+          }
+          .title {
+            font-size: 18px;
+            font-weight: 300;
+          }
+          .price {
+            font-size: 14px;
+            font-weight: 300;
           }
         }
       }
@@ -188,7 +198,7 @@
   .section-4 {
     justify-content: space-between;
     gap: 50px;
-    padding: 50px 200px;
+    padding: 50px 220px;
 
     .productcer-wrap {
       flex-basis: 50%;
@@ -211,7 +221,6 @@
       }
     }
   }
-
 }
 .effect-upt {
   animation-name: upText;
