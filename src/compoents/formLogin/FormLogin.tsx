@@ -100,7 +100,7 @@ const backTologin=()=>{
           />
 
           {!checkRegister && (
-            <p role="alert">
+            <p role="alert" className="error-login">
               {!checkRegister ? USER_MESS_ERROR  : REQUIRED}
             </p>
           )}
@@ -119,7 +119,7 @@ const backTologin=()=>{
             <FaEyeSlash className="showpws" />
           )}
           {!checkRegister && (
-            <p role="alert">
+            <p role="alert" className="error-login">
               {errors.password?.type === "required" ? REQUIRED : PWS_ERROR}
             </p>
           )}
@@ -129,12 +129,8 @@ const backTologin=()=>{
             >
               Login
             </button>
-            <button>
-              <input
-                onClick={!ChangeLayout ? changeLayout : handleSubmit(onSubmit)}
-                type="submit"
-                value={"Sign In"}
-              />{" "}
+            <button  onClick={!ChangeLayout ? changeLayout : handleSubmit(onSubmit)}>
+             Sign In
             </button>
           </div>
         </form>

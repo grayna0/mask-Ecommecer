@@ -11,7 +11,7 @@ $md: 768px;
 $lg: 1024px;
 $xl: 1200px;
 $xxl: 1400px;
-$xxxl: 1580px;
+$xxxl: 1650px;
 
 @mixin sm {
   @media screen and (max-width: $sm) {
@@ -38,13 +38,6 @@ $xxxl: 1580px;
   @media screen and (max-width: $xxl) {
     @content;
   }
-  
-}
-@mixin xxxl {
-  @media screen and (max-width: $xxxl) {
-    @content;
-  }
-  
 }
 @font-face{
   font-family: ChakraBold;
@@ -107,6 +100,11 @@ h6,
 p {
   margin: 0;
 }
+@include xxl {
+  h2{
+    font-size: 26px;
+  }
+}
 button{
     border: none;
     // background-color: none;
@@ -115,6 +113,8 @@ button{
 }
 input{
     border:none;
+    font-family:  ChakraRegular;
+    font-size: 18px;
     &:focus{
         outline:none;
     }

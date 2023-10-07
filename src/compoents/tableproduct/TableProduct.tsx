@@ -14,6 +14,18 @@ const TableProduct = ({
   showaddToCart: boolean;
   style?: CSSProperties;
 }) => {
+  
+  return (
+    <>
+      <div className="cate-product flex " style={style}>
+        <ProductList productlist={productData} showaddcart={showaddToCart} />
+      </div>
+    </>
+  );
+};
+
+
+const ProductList = ({ productlist, showaddcart,}: { productlist: Product[]; showaddcart: boolean;}) => {
   const navigate = useNavigate();
   const toProductPage = (id: string) => {
     navigate(`/product/${id}`);
@@ -23,37 +35,30 @@ const TableProduct = ({
   const addToCartFn = (item: any) => {
     dispatch(addToCart(item));
   };
-
   return (
     <>
- 
-
-      <div className="cate-product flex " style={style}>
-        {productData.map((item) => {
-          return (
-            <div className="box-product" key={item.id}>
-              <div
-                className="box-img "
-                onClick={() => toProductPage(item.title)}
-              >
-                <img className="img" src={`/${item.img}`} alt={`${item.img}`} />
-                <h3 className="title">{item.title.length >20 ?`${item.title.slice(0,20)}...`:item.title}</h3>
-                <h3 className="price">{item.price}</h3>
-              </div>
-              {showaddToCart && (
-                <button
-                  className="add-to-cart"
-                  onClick={() => addToCartFn(item)}
-                >
-                  Add to cart
-                </button>
-              )}
+      {productlist.map((item) => {
+        return (
+          <div className="box-product" key={item.id}>
+            <div className="box-img " onClick={() => toProductPage(item.title)}>
+              <img className="img" src={`/${item.img}`} alt={`${item.img}`} />
+              <h3 className="title">
+                {item.title.length > 20
+                  ? `${item.title.slice(0, 20)}...`
+                  : item.title}
+              </h3>
+              <h3 className="price">{item.price}</h3>
             </div>
-          );
-        })}
-      </div>
+            {showaddcart && (
+              <button className="add-to-cart" onClick={() => addToCartFn(item)}>
+                Add to cart
+              </button>
+            )}
+          </div>
+        );
+      })}
     </>
   );
 };
 
-export default TableProduct;
+  export default TableProduct;

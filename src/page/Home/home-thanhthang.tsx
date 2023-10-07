@@ -47,21 +47,18 @@ const Home = () => {
       </div>
       <RelateProduct productData={relateProduct} />
       {date > 0 && <CountDown />}
-      <div className="test">
-        
       <TableProduct
         style={tableStyle}
         productData={productsContext.products}
         showaddToCart={false}
       />
-      </div>
-      <div className="section-4 container-pg flex">
-      
+      <div className=" container-pg flex">
+        <div className="flex-auto">
           <Aboutus />
-    
-      
+        </div>
+        <div className="flex-auto max-w-2xl">
           <Question />
-     
+        </div>
       </div>
     </>
   );
@@ -141,7 +138,7 @@ const RelateProduct = ({ productData }: { productData: Product[] }) => {
             <span style={{ color: "red" }}>{productData[prev]?.price}$</span>
           </h2>
           <p className="description  effect effect-up-4s">
-            {productData[prev]?.description.slice(0, 250)}...
+            {productData[prev]?.description.slice(0, 150)}...
           </p>
           <div className="flex product-button  effect effect-up-5s">
             <button className="button-shop">

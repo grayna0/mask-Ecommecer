@@ -12,8 +12,8 @@ const Footer = ({pageList}:{pageList:string[]}) => {
         
    
   return (
-    <div className="flex footer container-pg">
-      <div className="col1">
+    <div className="flex footers ">
+      <div className="footers-col">
         <ul>
           <li className="my-5">logo</li>
           <li className="my-3">
@@ -32,11 +32,11 @@ const Footer = ({pageList}:{pageList:string[]}) => {
           <BsTwitter className="icon-footer"/>
         </div>
       </div>
-      <div className="col2">
+      <div className="footers-col">
         <p>Categories</p>
        <ListCategoryFooter pageListFillter={pageListFillter}/>
       </div>
-      <div className="col3">
+      <div className="footers-col">
         <p>Page</p>
         <ul>
           {menuHome.map(menu =>(
@@ -44,7 +44,7 @@ const Footer = ({pageList}:{pageList:string[]}) => {
           ))}
         </ul>
       </div>
-      <div className="col4">
+      <div className="footers-col">
         <p>Pay</p>
         <ul>icon Pay</ul>
       </div>
