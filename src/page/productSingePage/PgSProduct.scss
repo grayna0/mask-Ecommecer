@@ -1,99 +1,132 @@
 @import "../../styles/comon.scss";
 
-.container-pg{
+.container-pg {
   color: $main-color;
   padding: 100px 200px 0px 200px;
-  @include xxl{
-    padding: 100px 100px 0px 100px; 
+  @include xxl {
+    padding: 100px 100px 0px 100px;
   }
-  @include lg{
-    padding: 100px 50px 0px 50px; 
+  @include lg {
+    padding: 100px 50px 0px 50px;
   }
-  .title-lg{
-    h1{
-
+  .title-lg {
+    h1 {
       font-size: 62px;
     }
   }
-    .banner-product{
-      max-height: 600px;
-        display: flex;
-        justify-content: center;
-        margin:50px  0 50px 0;
-       
-        border-radius: 20px;
-        background-color: white;
-        position: relative;
+  .banner-product {
+    max-height: 600px;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 50px 0;
+    border-radius: 20px;
+    background-color: white;
+    position: relative;
 
-        .banner-product-img{
-            filter: drop-shadow(10px 20px 20px black);
-            transform: scale(.8);
-            transition: all .5s;
-            &:hover{
-                transform: scale(.9);
-            filter: drop-shadow(10px 20px 20px black);
-
-            }
+    .banner-product-img {
+      filter: drop-shadow(10px 20px 20px black);
+      transform: scale(0.8);
+      transition: all 0.5s;
+      &:hover {
+        transform: scale(0.9);
+        filter: drop-shadow(10px 20px 20px black);
+      }
+    }
+  }
+  .flex {
     
+    .lf-content {
+      .Descreption {
+        h2 {
+          font-family: ChakraSemiBold;
         }
-    }
-    .flex{
-      
-      .flex-basic-50{
-        .Descreption{
-          // background-color: $soft-color;
-          // color: $main-bg;
-          // padding: 20px;
-          h2{
-           font-family: ChakraSemiBold;
+        .decript {
+          margin: 30px 0;
+          font-family: ChakraLight;
+        }
+      }
+      .heighlight {
+        margin: 20px 0;
+        background-color: $soft-color;
+        color: $main-bg;
+        padding: 20px;
+        .flex {
+          ul {
+            li {
+              margin-top: 10px;
+            }
           }
-           .decript{
-             margin: 30px 0;
-             font-family: ChakraLight;
-           }
+          .QuestionA {
+            .accordion {
+              h3 {
+                border-radius: 15px;
+                border: 1px solid $soft-color;
+                margin-top: 10px;
+                padding: 10px 10px;
+                cursor: pointer;
+        
+                font-family: ChakraSemibold;
+        
+                &:hover {
+                  background-color: #c4c1c13d;
+                }
+                &:active {
+                  background-color: $soft-color;
+                }
+              }
+              p {
+                padding: 10px 10px;
+                transition: all 5s;
+              }
+            }
+          }
         }
       }
     }
-    .heighlight{
-      margin:20px 0;
-      background-color: $soft-color;
-      color: $main-bg;
-      padding: 20px;
-     .flex{
-      ul{
-        li{
-          margin-top: 10px;
-        }
+    .rg-content{
+      .price{
+
       }
-     }
-    }
-    .QuestionA{
-      .accordion{
-   
-       
-       
-        h3{
-       
-          border-radius: 15px;
-          border: 1px  solid $soft-color;
-          margin-top: 10px;
-          padding: 10px 10px;
-          cursor: pointer;
-        
-          font-family: ChakraSemibold;
-        
-          &:hover{
-            background-color:#c4c1c13d;
+      .actions {
+        margin: 30px 0;
+      }
+      .header-rating-comment{
+        display: flex;
+        .star-rating{
+          position: relative;
+          .star-rating-wrapper{
+            width: 50% ;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            z-index: 1;
+            svg{
+              width: 2rem;
+              height: 2rem;
+              fill: red;
+            }
           }
-          &:active{
-            background-color:$soft-color;
+          .icon-rating-solid{
+          display: block;
+          width: 2rem;
+          height: 2rem;
+          fill: none;
+          stroke:red;
+          stroke-width:0.5px;
+          
+
           }
-        }
-        p{
-          padding: 10px 10px;
-          transition: all 5s;
+
         }
       }
 
     }
+  }
+  .cate-product {
+    padding: 50px 0 ;
+    justify-content: center;
+  }
 }
+

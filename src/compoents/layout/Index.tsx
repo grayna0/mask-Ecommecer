@@ -7,6 +7,7 @@ import apiUrl from "../../services/Api";
 import axios from "axios";
 import { Product } from "../../page/admin/Admin";
 import Footer from "../footer/Footer";
+import SideBarCart from "../cart/SideBarCart";
 
 export const ProductContext=createContext<any>(undefined)
 const Layout = () => {
@@ -36,6 +37,7 @@ const Layout = () => {
         <Outlet  />
         </ProductContext.Provider>
         <Footer pageList={pageList}/>
+        <SideBarCart lastItem={products[0]}/>
       </Container>
     </Container>
   );

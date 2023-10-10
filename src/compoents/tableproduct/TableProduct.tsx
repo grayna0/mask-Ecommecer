@@ -2,9 +2,11 @@ import "./tableproduct.scss";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { addToCart } from "../../store/slice/cartSlice";
+import { FaCartPlus } from "react-icons/fa";
 
 import { Product } from "../../page/admin/Admin";
 import { CSSProperties,useState } from "react";
+import { BsEmojiHeartEyesFill, BsEyeSlashFill } from "react-icons/bs";
 
 const TableProduct = ({
   productData,
@@ -62,7 +64,7 @@ const ProductList = ({ productlist, showaddcart,}: { productlist: Product[]; sho
   };
   const dispatch = useDispatch();
 
-  const addToCartFn = (item: any) => {
+   const addToCartFn = (item: any) => {
     dispatch(addToCart(item));
   };
  
@@ -79,13 +81,18 @@ const ProductList = ({ productlist, showaddcart,}: { productlist: Product[]; sho
                   ? `${item.title.slice(0, 20)}...`
                   : item.title}
               </h3>
-              <h3 className="price">{item.price}</h3>
+                  <h3 className="price">${item.price}</h3>
+              <div className="btn-icon">
+
+              <BsEmojiHeartEyesFill className="icon-add-cart"/>
+              <BsEyeSlashFill className="icon-add-cart" onClick={() => toProductPage(item.title)}/>
+              <FaCartPlus className="icon-add-cart"  onClick={(e) => {
+          e.stopPropagation()
+          addToCartFn(item)
+        }}/>
+              </div>
             </div>
-            {showaddcart && (
-              <button className="add-to-cart" onClick={() => addToCartFn(item)}>
-                Add to cart
-              </button>
-            )}
+           
           </div>
         );
       })}

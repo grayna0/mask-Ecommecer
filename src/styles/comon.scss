@@ -165,3 +165,53 @@ color:black;
 .thumb{
   max-width: 200px;
 }
+.style-button{
+  display: flex;
+  align-items: center;
+  padding: 20px 30px;
+  border-radius: 50px;
+  background:linear-gradient(-45deg,#ffa63d,#ff3d77,#1593e3,#5918df); 
+  background-size: 1000%;
+   transition: all 1s;
+  box-shadow: 0 10px 20px #5918df;
+  span{
+    font-size: 20px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .after {
+    width: 0px;
+    display: inline-block;
+    overflow: hidden;
+    transition: width .5s;
+  }
+  .text{
+  
+    display: inline-block;
+    transform: translate(0px, 0px);
+    transition: transform .5s;
+  }
+  
+  &:hover .text {
+ 
+    transform: translate(-10px, 0px);
+    
+  }
+  &:hover .after {
+    width:20px;
+
+  }
+  &:hover  {
+ 
+    box-shadow: 0 10px 40px #5918df;
+  }
+  &:active{
+    transform: scale(0.9);
+
+  }
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+
+ 

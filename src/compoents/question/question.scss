@@ -1,9 +1,7 @@
 .QuestionA{
   width: 100%;
     .accordion{
- 
-     
-     
+    
       h3{
      
         border-radius: 15px;
@@ -21,10 +19,12 @@
           background-color:white;
         }
       }
-      p{
+      .active-aws{
         padding: 10px 10px;
-        transition: all 5s;
+        height:60px;
+      
       }
+  
     }
 
   }

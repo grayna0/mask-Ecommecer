@@ -17,8 +17,8 @@ import "./question.scss"
         <h2>Popular Questions</h2>
       {questions.map((item:any,i:number)=>(
         <div className="accordion" key={item.question} >
-        <h3 onClick={()=>handleShowAnswer(i)}>{item.question}</h3>
-        {showAnswer[i] && <p>{item.anwers}</p>}
+        <h3  onClick={()=>handleShowAnswer(i)}>{item.question}</h3>
+        {showAnswer[i] && <p className="active-aws">{item.anwers}</p>}
   
         </div>
       ))}

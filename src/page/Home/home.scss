@@ -119,7 +119,9 @@
         max-width: 50%;
         justify-content: flex-start;
         color: $main-color;
+        padding: 50px 50px;
         .product-title {
+         
           font-size: 48px;
           @include xxl {
             font-size: 32px;

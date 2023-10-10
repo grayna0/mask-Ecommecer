@@ -67,8 +67,16 @@ export interface Product {
   inStock: boolean;
   description: string;
   quantity:number;
-  star:number,
+  star: number
+   
+  ,
   category:string,
-  comment:string[]
+  comment:{
+    user:string;
+    img:string;
+    comment:string;
+    date:string;
+    voteStar:number
+  }[]
 }
 export default Admin;

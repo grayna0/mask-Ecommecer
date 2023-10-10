@@ -1,3 +1,4 @@
+import { link } from "fs";
 import React from "react";
 import {Link} from 'react-router-dom'
 
@@ -5,6 +6,11 @@ interface Nav {
   id: number;
   link: string;
   title: string;
+  dropDown?: { 
+    id: number;
+    link: string;
+   title: string;
+}[]
 }
 
 const navbar: Nav[] = [
@@ -17,6 +23,18 @@ const navbar: Nav[] = [
     id: 2,
     link: "/shop",
     title: "SHOP",
+    dropDown:[
+      {
+        id: 1,
+        link: "/shop",
+        title: "Helmet",
+      },
+      {
+        id: 2,
+        link: "/shop",
+        title: "Mask"
+      }
+    ]
   },
   {
     id: 3,
@@ -37,6 +55,13 @@ const Navbar: React.FC = () => {
         {navbar.map((nav) => (
           <li key={nav.id}>
             <Link to={nav.link}>{nav.title}</Link>
+            {
+           nav.dropDown && <ul className="dropdown">
+            {
+             nav.dropDown.map(i=>
+            (
+              <li> <Link to={i.link}>{i.title}</Link></li>
+            ))}</ul>}
           </li>
         ))}
       </ul>

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { ProductContext } from "../../compoents/layout/Index";
-
 import "./PgSProduct.scss";
 import Descreption from "./Descreption";
 import TableProduct from "../../compoents/tableproduct/TableProduct";
@@ -33,7 +32,7 @@ const PgSProduct = () => {
           />
         </div>
        <Descreption product={productid}/>
-       <TableProduct productData={productSame} showaddToCart={false}/>
+       <TableProduct productData={productSame.slice(0,3)} showaddToCart={false} showErrorSreach={true}/>
       </div>
     </>
   );

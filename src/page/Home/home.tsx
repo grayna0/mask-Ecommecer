@@ -13,6 +13,7 @@ import CountDown from "../../compoents/countdown/CountDown";
 import { useDispatch, useSelector } from "react-redux";
 import { getTimeCountDown } from "../../store/slice/countdownSlice";
 import Aboutus from "../../compoents/slide/Aboutus";
+import { BiRightArrowCircle } from "react-icons/bi";
 export const tableStyle: CSSProperties = {
   justifyContent: "center",
 };
@@ -21,6 +22,7 @@ const Home = () => {
   const [relateProduct, setRelaPro] = useState<Product[]>([]);
   const { date } = useSelector((state: any) => state.countDown);
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     if (date > 0) {
@@ -37,7 +39,7 @@ const Home = () => {
   }, [productsContext.products]);
   const filterBestProduct = () => {
     const bestProduct = productsContext.products.filter(
-      (item: Product) => item.star === 5
+      (item: Product) => item.star.rating === 5
     );
     setRelaPro(bestProduct);
   };
@@ -138,7 +140,7 @@ const RelateProduct = ({ productData }: { productData: Product[] }) => {
         </div>
         <div className="content-right">
           <h2 className="product-title effect effect-upt ">{productData[prev]?.title}</h2>
-          <h2 className="effect effect-up-05s">{productData[prev]?.star}</h2>
+          <h2 className="effect effect-up-05s">{productData[prev]?.star.rating}</h2>
           <h2 className="price effect effect-up-3s ">
             Price:{" "}
             <span style={{ color: "red" }}>{productData[prev]?.price}$</span>
@@ -146,13 +148,16 @@ const RelateProduct = ({ productData }: { productData: Product[] }) => {
           <p className="description  effect effect-up-4s">
             {productData[prev]?.description.slice(0, 250)}...
           </p>
-          <div className="flex product-button  effect effect-up-5s">
-            <button className="button-shop">
-              <Link to="/shop">Shop</Link>
-            </button>
-            <button  >
-              <Link to={`/product/${productData[prev]?.title}`} className="add-to-cart">View more</Link>
-            </button>
+          <div className=" product-button  effect effect-up-5s">
+
+          
+              <Link to={`/product/${productData[prev]?.title}`}>
+                <button  className="style-button">
+                   <span className="text">View more</span>
+                   <span className="after"><BiRightArrowCircle /></span>
+                </button>
+              </Link>
+           
           </div>
         </div>
         <FcNext

@@ -46,7 +46,9 @@ const Footer = ({pageList}:{pageList:string[]}) => {
       </div>
       <div className="footers-col">
         <p>Pay</p>
-        <ul>icon Pay</ul>
+        <ul>icon Pay
+         
+        </ul>
       </div>
     </div>
   );
