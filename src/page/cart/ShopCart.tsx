@@ -2,15 +2,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeCart } from "../../store/slice/cartSlice";
 import { Link } from "react-router-dom";
 import "./shopcart.scss"
+
 const ShopCart = () => {
-  const listChose = useSelector((state: any) => state.addToCart.itemsList);
+
+  const list =useSelector((state:any) => state.addToCart.itemsList)
+
+
   const dispatch = useDispatch();
   const removeItem = (item: any) => {
     dispatch(removeCart(item));
+  
   };
   const addToCartFn = (item: any) => {
     dispatch(addToCart(item));
+    
+
   };
+
 
   return (
     <div className="container-pg">
@@ -28,7 +36,7 @@ const ShopCart = () => {
             <th>SUBTOTAL</th>
             <th>ACTION</th>
           </tr>
-        {listChose.map((item: any) => (
+        {list.map((item: any) => (
           <tr key={item.id}>
             <td className="td-img">
               <img className="thumb" src={`/${item.img}`} alt={item.img} />
@@ -54,7 +62,7 @@ const ShopCart = () => {
         ))}
         </table>
       </div>
-      <Link to="/checkout">Check Out</Link>
+      <Link to="/checkout"><h2 className="bg-red-400 inline-block my-8 rounded-3xl p-3">Check Out</h2></Link>
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import axios from "axios"
 
-const apiUrl :string =  "http://localhost:3001"
-export default apiUrl
+
 export const api= axios.create(
    {
-     baseURL: "http://localhost:3001",
+     baseURL: "https://mocki.io/v1/97fb96a5-a0cb-4e57-babe-2c6cd71e75bc",
+  
      headers:{
         "Content-Type":"application/json"
      }

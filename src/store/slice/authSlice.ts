@@ -1,98 +1,148 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { api } from "../../services/Api";
-import { Hidden } from "@mui/material";
+
+import useLocalStorage from "../../hook/useLocalStorage";
 
 
 export const actionLogin = createAsyncThunk(
     "action/actionLogin",
-    async (data:any,thunkAPI) => {
-  
-         const res=await api.get(`/infoUsers/?q=${data}`)
-         thunkAPI.dispatch(loginAcount(res.data[0]))
-     
-         
-        
+    async (data: any, thunkAPI) => {
+        const { getLocalItem, setLocalItem } = useLocalStorage()
+        const dataUserLogin = getLocalItem("user")
+        if (dataUserLogin) {
+            thunkAPI.dispatch(loginAcount(dataUserLogin))
+
+        } else {
+            const res = await api.get(`/infoUsers/?q=${data}`)
+            thunkAPI.dispatch(loginAcount(res.data[0]))
+            setLocalItem("user", res.data[0])
+        }
     }
 )
 export const actionRegister = createAsyncThunk(
     "action/actionRegister",
-    async (data:any,thunkAPI) => {
-        const name:any =thunkAPI.getState()
+    async (data: any, thunkAPI) => {
+        const name: any = thunkAPI.getState()
         console.log(name?.auth.name);
-        if(data.nickname !== name?.auth.name ){
-            await api.post(`/infoUsers`,data)
-        
-
+        if (data.nickname !== name?.auth.name) {
+            await api.post(`/infoUsers`, data)
         }
-    
+    }
+)
+export const actionLogOut = createAsyncThunk(
+    "action/actionLogOut",
+    async (payload: any, thunkAPI) => {
+        const { removeLocalItem } = useLocalStorage()
+        removeLocalItem("user")
+        // @ts-ignore
+        thunkAPI.dispatch(logOutAcount())
+    }
+)
+export const changeUserDetails = createAsyncThunk(
+    "action/changeUserDetails",
+    async (data: any, thunkAPI) => {
+        const idUser: any = thunkAPI.getState()
+        try {
+            await api.put(`/infoUsers/${idUser?.auth.id}`, data)
+        } catch (error) {
+        }
     }
 )
 
-const authSlice=createSlice({
-    name:"auth",
-    initialState:{
-        token:null,
-        name:null,
-        pws:null,
-        id:null,
-        loginSuccess:false,
-        checkRegister:true,
-        registerSuccess:false,
-    },
-    reducers:{
-        loginAcount(state,action){ 
-                state.name = action.payload.nickname
-                state.pws = action.payload.password
-                state.id = action.payload.id
-                state.loginSuccess = true
+const authSlice = createSlice({
+    name: "auth",
+    initialState: {
+        detail: {
+            id: null,
+            totalItemOders: 0,
+            img: "",
+            name: null,
+            pws: null,
         },
-        logOutAcount(state,action){
-            state.name = null
-            state.pws = null
-            state.id =null
+        loginSuccess: false,
+        checkRegister: true,
+        registerSuccess: false,
+        loading:false
+    },
+    reducers: {
+        loginAcount(state, action) {
+            state.detail.name = action.payload.nickname
+            state.detail.pws = action.payload.password
+            state.detail.id = action.payload.id
+            state.loginSuccess = true
+            state.detail.img = action.payload.img
+
+
+        },
+        logOutAcount(state, action) {
+            state.detail.name = null
+            state.detail.pws = null
             state.loginSuccess = false
 
         },
-        registerDone(state,action){
-            console.log(action.payload);
-            console.log( state.registerSuccess);
-            
-          if(action.payload === "hiden-error"){
-            state.checkRegister=true
-          }else  if(action.payload === "show-login"){
+        registerDone(state, action) {
+            if (action.payload === "hiden-error") {
+                state.checkRegister = true
+            } else if (action.payload === "show-login") {
+                state.registerSuccess = false
+            }
 
-              state.registerSuccess=false 
-          }
-           
-            
+
         }
 
-    },extraReducers: (builder) => {
+    }, extraReducers: (builder) => {
         builder
             .addCase(actionRegister.fulfilled, (state, action) => {
-             console.log(action);
-             if(state.name === action.meta.arg.nickname){
-
-                state.checkRegister=false
-            }else if(state.name !==  action.meta.arg.nickname){
-               
-                state.registerSuccess=true 
-            }
-             
+                console.log(action);
+                if (state.detail.name === action.meta.arg.nickname) {
+                    state.checkRegister = false
+                } else if (state.detail.name !== action.meta.arg.nickname) {
+                    state.registerSuccess = true
+                }
             })
             .addCase(actionRegister.rejected, (state, action) => {
-                console.log(action);
-               if( action.meta.arg.nickname === ""){
-                  
-                   state.checkRegister=false
-               }
-                
-               })
-        
+                if (action.meta.arg.nickname === "") {
+                    state.checkRegister = false
+                }
+
+            })
+            .addCase(changeUserDetails.fulfilled, (state, action) => {
+                state.detail.img = action.meta.arg.img
+
+            })
+            .addCase(actionLogOut.pending , (state,action) => {
+                state.loading=true
+                state.loginSuccess=true
+                state.registerSuccess=false
+            })
+            .addCase(actionLogOut.fulfilled , (state,action) => {
+                state.loading=false
+                state.loginSuccess=false
+                state.detail={ id: null,
+                    totalItemOders: 0,
+                    img: "",
+                    name: null,
+                    pws: null,}
+            })
+            .addCase(actionLogOut.rejected , (state,action) => {
+             console.log("Logout false");
+             
+            })
+            .addCase(actionLogin.fulfilled , (state,action) => {
+                state.loading=true
+                state.registerSuccess=false
+            })
+            .addCase(actionLogin.rejected , (state,action) => {
+             console.log("LogIn false");
+             
+            })
+
+
+
 
     }
-  
-    
+
+
 })
-export const {loginAcount,logOutAcount,registerDone} = authSlice.actions
+export const { loginAcount, logOutAcount, registerDone } = authSlice.actions
 export default authSlice.reducer

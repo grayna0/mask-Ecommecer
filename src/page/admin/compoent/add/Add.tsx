@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import "./add.scss";
 import { memo } from "react";
-import axios from "axios";
-import apiUrl from "../../../../services/Api";
+
 import { Product, productContext } from "../../Admin";
+import { api } from "../../../../services/Api";
 
 
 const Add = ({ setClose }: { setClose: () => void }) => {
@@ -26,7 +26,7 @@ const Add = ({ setClose }: { setClose: () => void }) => {
     setClose();
     AminContext.setUpdateProduct(updateRow);
 
-    await axios.post(`${apiUrl}/products`, updateRow);
+    await api.post(`/products`, updateRow);
   };
 
 

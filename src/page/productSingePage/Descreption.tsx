@@ -7,18 +7,22 @@ import { Link } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { api } from "../../services/Api";
+import ListComment from "./ListComment";
+import ShowStars from "../../compoents/star-rating/ShowStar";
 
 const Descreption = ({ product }: { product: Product }) => {
 
+  
   const dispatch = useDispatch();
+
   return (
     <>
-      <div className="flex  flex-gap-20">
+      <div className="des-detail flex  flex-gap-20">
         <div className="flex-basic-50 lf-content ">
           <div className="Descreption bor-radius-20">
             <h2>Descreption</h2>
             <p className="decript">{product?.description.slice(0, 200)}...</p>
-            <button className="button">Read More</button>
+          
           </div>
           <DeltailProduct />
           <Question />
@@ -26,8 +30,8 @@ const Descreption = ({ product }: { product: Product }) => {
         <div className="flex-basic-50 rg-content">
           <div className="price">
             <h2 className="product-price">USD {product?.price}.00</h2>
-          <ShowStars  productStar={product.star} />
-            
+            <ShowStars productStar={product?.star.rating} />
+    
           </div>
           <div className="actions flex gap-6 ">
             <button
@@ -46,10 +50,9 @@ const Descreption = ({ product }: { product: Product }) => {
               </span>
             </Link>
           </div>
-        
 
-          <RatingStars  product={product}/>
-       
+          <ListComment product={product} />
+          <Comment product={product}/>
         </div>
       </div>
     </>
@@ -58,54 +61,58 @@ const Descreption = ({ product }: { product: Product }) => {
 
 export default Descreption;
 interface userComent {
-  mess:string,
+  mess: string;
 }
-interface Coment {
-  mess:string,
-}
-
-const RatingStars  = ({product}:{product:Product}) => {
-  const { register, handleSubmit } = useForm<userComent>();
+const Comment = ({ product }: { product: Product}) => {
+  const { register, handleSubmit, reset } = useForm<userComent>();
   const [starSelected, setstarSelected] = useState<number>(0);
 
-  const productClone={...product}
-  const putComment = async (data:any) => {
-    const ratingUpdate=productClone.comment?.map(item=>item.voteStar)
+  const putComment = async (data: any) => {
+    const ratingUpdate = product.comment?.map((item) => item.voteStar);
+    const totalRatingUpdate = ratingUpdate.reduce(
+      (sum, currentRating) => sum + currentRating,
+      0
+    );
+    const upstar = {
+      totalStars: totalRatingUpdate,
+      rating: totalRatingUpdate / product.comment?.length,
+      totalUserVote: product.comment?.length,
+    };
+    const upComment = {
+      user: "grayna0@gmail.com",
+      img: "avatar.png",
+      comment: data,
+      date: "11-09-2022",
+      voteStar: starSelected,
+    };
+    await api.put(`/products/${product.id}`, {
+      ...product,
+      star: upstar,
+      comment: [...product.comment, upComment],
+    });
+  };
+  const onSubmit: SubmitHandler<userComent> = async (data: any) => {
+  
+    reset();
     
-    const totalRatingUpdate=ratingUpdate.reduce((sum,currentRating)=>sum + currentRating,0)
-    console.log(totalRatingUpdate);
-    const upstar ={
-      totalStars:totalRatingUpdate,
-      rating: totalRatingUpdate / productClone.comment?.length,
-      totalUserVote:productClone.comment?.length
-    }
-    const upComment ={
-           user:"grayna0@gmail.com",
-          img:"avatar.png",
-          comment:data,
-          date:"11-09-2022",
-          voteStar:starSelected
-    }
-    await api.put(`/products/${product.id}`,{...productClone,star:upstar,comment:[...productClone.comment,upComment]})
-  }
-  const onSubmit: SubmitHandler<userComent> = async (data:any) => {
-    console.log(111);
-     putComment(data.mess)
-   
-  }
+    putComment(data.mess);
+  };
 
-  const onchage= (index:number) => {
-    setstarSelected(index)
-    
-  }
+  const onchage = (index: number) => {
+    setstarSelected(index);
+  };
   return (
-    <div>
-       <form onSubmit={handleSubmit(onSubmit)}>
-        <textarea  {...register("mess")} />
-       <ShowStars onchange={onchage} productStar={starSelected}/>
-        <input type="submit" />
+    <div className="form-comment">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <textarea {...register("mess")} placeholder="Your message...." />
+        <div className="flex justify-between gap-10 my-7 ">
+          <div className="vote-star">
+            <h3 className="my-1">Vote Star :</h3>
+            <ShowStars onchange={onchage} productStar={starSelected} />
+          </div>
+          <input className="button-sent-comment" type="submit" />
+        </div>
       </form>
-   
     </div>
   );
 };
@@ -141,115 +148,4 @@ const DeltailProduct = () => {
       </div>
     </>
   );
-};
-
-
-
-const Stars =({rating,onchange }: { rating: number,onchange?:(i:number)=>void }) => {
-  const [starExists, setStarExists] = useState<number[]>([0, 0, 0, 0,0]);
-  useEffect(() => {
-   
-     handleStarShow()
-  
-    
-   },[]);
-   const onchangeStars=(index:any)=>{
-    if(onchange){
-       onchange(index)
-       handleSelectStar(index)
-       handleSelectStar(index)
-    }else{
-      return
-    }
-   }
-   const handleSelectStar = (rating:number) =>{
-  const fillStar=starExists.slice(0,rating+1).fill(1)
-  console.log(2,fillStar);
-  
-  const lastStar=starExists.slice(rating+1,6).fill(0)
-  console.log(1,lastStar);
-
-  const showStarSeletd=fillStar.concat(lastStar)
-  console.log(1,showStarSeletd);
-
-  setStarExists(showStarSeletd)
- 
-   }
-  const handleStarShow=()=>{
-    let starsFirst
-    let starLast
-    if(rating){
-      starsFirst=Math.floor(rating)
-      starLast = (rating -starsFirst).toFixed(0)
-      const updateStar=starExists.slice(0, starsFirst).fill(1)
-      const updateStarLast=starExists.slice(starsFirst , 6)
-      if(Number(starLast) < 1 && Number(starLast) > 0){
-         setStarExists(updateStar.concat(Number(starLast),updateStarLast))
-      }else  if(Number(starLast) === 5){
-        setStarExists([1,1,1,1,1])
-      }else  if(Number(starLast) === 0){
-        setStarExists(updateStar.concat(updateStarLast))
-
-      }
-    }
-  }
-
-
-return(
-  <>
-  {
-starExists.map((rate:number,index:number)=> (
-
-    <div className="star-rating">
-      <div className="star-rating-wrapper" style={{ width: `${rate === 1 ? 100 : rate*100}%` }}>
-        <svg
-         enableBackground="new 0 0 15 15"
-          viewBox="0 0 15 15"
-          x="0"
-          y="0"
-          className="icon-rating"
-         
-          onClick={()=>{onchangeStars(index)
-         }}
-
-
-        >
-          <polygon
-            points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeMiterlimit="10"
-          ></polygon>
-        </svg>
-      </div>
-      <svg
-        enableBackground="new 0 0 15 15"
-        viewBox="0 0 15 15"
-        x="0"
-        y="0"
-        className="rating-stars__primary-star icon-rating-solid"
-      
-        onClick={()=>{onchangeStars(index)
-          }}
-
-      >
-        <polygon
-          points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeMiterlimit="10"
-        ></polygon>
-      </svg>
-    </div>
-))
-    }</>
-)
-}
-export const ShowStars = ({ productStar,onchange }: { productStar: number,onchange?:(i:number)=>void }) => {
-  
-  return (
-     <div className="header-rating-comment flex w-40">
-    <Stars rating={productStar} onchange={onchange}/>
-    </div>
-  )
 };

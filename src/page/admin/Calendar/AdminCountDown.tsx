@@ -5,7 +5,7 @@ import {
   postTimeCountDown,
 } from "../../../store/slice/countdownSlice";
 import { CSSProperties, useEffect, useState } from "react";
-import { transform } from "typescript";
+
 const AdminCountDown = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm<any>();

@@ -1,5 +1,5 @@
 import React from 'react'
-import "../../../styles/admin/dashboard.scss"
+import "./dashboard.scss"
 import Topbox from '../compoent/topbox/Topbox'
 import Chartbox from '../compoent/chartbox/Chartbox'
 import {chartBoxUser,chartBoxProduct,chartBoxRevenue,chartBoxConversion

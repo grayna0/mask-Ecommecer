@@ -20,6 +20,9 @@
     flex-wrap: wrap;
     gap: 2em;
     list-style: none;
+    @include md {
+      display: none;
+    }
     li{
       position: relative;
       padding: 10px 10px;
@@ -63,6 +66,12 @@
   .right-nav {
     flex-grow: 1;
     justify-content: flex-end;
+    .menu-mobile{
+      display: none;
+      @include md {
+        display: block;
+      }
+    }
     
   }
 }

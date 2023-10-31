@@ -1,26 +1,29 @@
 import { Container } from "@mui/material";
-import Header from "../header/Header";
+import Header from "../compoents/header/Header";
 import { Outlet } from "react-router-dom";
 
 import React, { useEffect, useState ,createContext} from "react";
-import apiUrl from "../../services/Api";
-import axios from "axios";
-import { Product } from "../../page/admin/Admin";
-import Footer from "../footer/Footer";
-import SideBarCart from "../cart/SideBarCart";
+import { Product } from "../page/admin/Admin";
+import Footer from "../compoents/footer/Footer";
+import { useSelector } from "react-redux";
+import { api } from "../services/Api";
 
 export const ProductContext=createContext<any>(undefined)
 const Layout = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const checkoutSuccees = useSelector((state: any) => state.addToCart.checkoutSuccees);
+console.log(products);
+
   const pageList=products.map(product =>product.category)
   useEffect(() => {
-    getData()
-
-  },[]);
+    
+     getData()
+  },[checkoutSuccees]);
   const getData = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/products`);
+      const response = await api.get(`/products`);
       const jsonData = response.data;
+      
       setProducts(jsonData);
     } catch (error) {
       console.log(error);
@@ -37,7 +40,7 @@ const Layout = () => {
         <Outlet  />
         </ProductContext.Provider>
         <Footer pageList={pageList}/>
-        <SideBarCart lastItem={products[0]}/>
+    
       </Container>
     </Container>
   );

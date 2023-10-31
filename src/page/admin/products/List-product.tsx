@@ -1,12 +1,11 @@
-import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
-import apiUrl from "../../../services/Api";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { AiFillDelete } from "react-icons/ai";
 import { BsCheck } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import {Product} from "../Admin"
-import { infoUser } from "../../../compoents/formLogin/FormLogin";
+import { infoUser } from "../../../compoents/formLogin/type";
+import { api } from "../../../services/Api";
 
 export default function DataTable({
   dataProducts,
@@ -94,8 +93,8 @@ export default function DataTable({
   const deleteProduct = (id: number) => {
     const updateRows = dataProducts.filter((item) => item.id !== id);
     setproducts(updateRows);
-    axios
-      .delete(`${apiUrl}/products/${id}`)
+
+      api.delete(`/products/${id}`)
       .then(() => {
         console.log("đã xóa thành coong");
       })

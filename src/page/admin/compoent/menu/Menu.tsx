@@ -2,7 +2,7 @@ import { menu } from "../../../../services/data";
 
 import { Link } from "react-router-dom";
 
-import "../../../../styles/admin/menuad.scss";
+import "./menuad.scss";
 import { memo } from "react";
 
 const Menu = () => {

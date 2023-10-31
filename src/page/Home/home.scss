@@ -2,6 +2,7 @@
 
 .container {
   .banner {
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -11,6 +12,20 @@
     @include md {
       display: none;
     }
+    .typing-animation{
+      max-width: 300px;
+      position: absolute;
+      top:30%;
+      left: 20%;
+      transform: translate(-50%, -30%);
+      mix-blend-mode: overlay;
+      color:$main-color ;
+      h2{
+        font-size:22px ;
+      }
+   
+    }
+   
     .content-banner {
       position: relative;
       svg {
@@ -42,6 +57,7 @@
     @include md {
       filter: none;
       width: 98%;
+      margin: 50px auto 0 auto;
     }
 
     .box-cate-list {
@@ -293,4 +309,7 @@
     transform: translate(0);
     opacity: 1;
   }
+}
+button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.css-sghohy-MuiButtonBase-root-MuiButton-root{
+  background-color: transparent;
 }

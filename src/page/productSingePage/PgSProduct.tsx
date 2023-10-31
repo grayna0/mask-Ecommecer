@@ -1,19 +1,31 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ProductContext } from "../../compoents/layout/Index";
+import { ProductContext } from "../../layout/Index";
 import "./PgSProduct.scss";
 import Descreption from "./Descreption";
 import TableProduct from "../../compoents/tableproduct/TableProduct";
+import { Product } from "../admin/Admin";
 
 const PgSProduct = () => {
   const { title } = useParams();
   const productContext = useContext(ProductContext);
+  const [productDetail,setProductClone]=useState<Product| null>(null)
+
+  
   const productid = productContext.products.find(
     (item: any) => item.title === title
   );
   const productSame = productContext.products.filter(
     (item: any) => item.category === productid.category
   );
+  useEffect(() =>{
+    handleUserListComment()
+}
+,[productid])
+
+const handleUserListComment = () => {
+    setProductClone(productid)
+}
 
   return (
     <>
@@ -31,8 +43,12 @@ const PgSProduct = () => {
             alt=""
           />
         </div>
-       <Descreption product={productid}/>
-       <TableProduct productData={productSame.slice(0,3)} showaddToCart={false} showErrorSreach={true}/>
+       <Descreption product={productDetail ? productDetail  : productid }/>
+       <div className="my-16 same-product">
+       <h2>MAY BE YOU LIKE</h2>
+       
+       <TableProduct productData={productSame.slice(0,3)} showaddToCart={false} showErrorSreach={false}   nofound={true}/>
+       </div>
       </div>
     </>
   );

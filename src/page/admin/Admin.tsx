@@ -1,13 +1,10 @@
 import Navbar from "./compoent/navbar/Navbar";
-import "../../styles/admin/admin.scss";
+import "./admin.scss";
 import { Container } from "@mui/material";
 import Menu from "./compoent/menu/Menu";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState, createContext } from "react";
-import axios from "axios";
-import apiUrl from "../../services/Api";
-import { infoUser } from "../../compoents/formLogin/FormLogin";
-import Dashboard from "./dashboard/Dashboard";
+import { api } from "../../services/Api";
 
 
 export const productContext = createContext<any>(undefined);
@@ -24,7 +21,7 @@ const Admin = () => {
   }, [UpdateProduct]);
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/products`);
+      const response = await api.get(`/products`);
       const jsonData = response.data;
       setProducts(jsonData);
     
@@ -57,7 +54,7 @@ const Admin = () => {
 
 export interface Product {
   id: number;
-  img: FileList | File[] ;
+  img: FileList | File[];
   title: string;
   color: string[];
   producer: string;
@@ -67,15 +64,17 @@ export interface Product {
   inStock: boolean;
   description: string;
   quantity:number;
-  star: number
-   
-  ,
+  star:{
+    totalStars: number;
+    rating: number;
+    totalUserVote: number;
+  },
   category:string,
   comment:{
     user:string;
     img:string;
     comment:string;
-    date:string;
+    date:number;
     voteStar:number
   }[]
 }

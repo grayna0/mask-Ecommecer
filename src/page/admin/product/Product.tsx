@@ -5,8 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import "./productSingle.scss";
 import { ChangeEvent } from 'react';
 import { productContext } from "../Admin";
-import axios from "axios";
-import apiUrl from "../../../services/Api";
+import { api } from "../../../services/Api";
 
 export const ProductSingle = () => {
   const { id } = useParams<any>();
@@ -39,7 +38,7 @@ export const ProductSingle = () => {
       try {
        
         productData.setUpdateProduct(updateRow);
-        await axios.put(`${apiUrl}/products/${product?.id}`,updateRow);
+        await api.put(`/products/${product?.id}`,updateRow);
       } catch (error) {
         console.log("error", error);
       }
@@ -49,7 +48,7 @@ export const ProductSingle = () => {
 
         const newProduct = { ...updateRow, img: product?.img };
         productData.setUpdateProduct(newProduct);
-        await axios.put(`${apiUrl}/products/${product?.id}`, newProduct);
+        await api.put(`/products/${product?.id}`, newProduct);
       } catch (error) {
         console.log("error", error);
       }

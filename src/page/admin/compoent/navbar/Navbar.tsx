@@ -2,7 +2,7 @@ import React from "react";
 import { BsCart4, BsSearch, BsAppIndicator } from "react-icons/bs";
 
 import { Container } from '@mui/material';
-import  "../../../../styles/admin/adnavbar.scss"
+import  "./adnavbar.scss"
 import SetingAcount from "../seting/Seting"
 const Navbar = () => {
   return (

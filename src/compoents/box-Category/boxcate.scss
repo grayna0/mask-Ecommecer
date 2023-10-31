@@ -1,0 +1,15 @@
+.box-cate-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(167, 167, 167);
+    .title-box{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .des-box{
+        padding: 10px 30px ;
+        border: 1px solid rgb(167, 167, 167);
+        border-radius: 30px;
+    }
+}

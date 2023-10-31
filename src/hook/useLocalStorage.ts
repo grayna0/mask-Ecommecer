@@ -1,10 +1,10 @@
  const useLocalStorage = () => {
-    let localitem
+    let localItem
   
     const getLocalItem = (key: string) => {
-      localitem = localStorage.getItem(key);
-      if (localitem) {
-        return JSON.parse(localitem);
+      localItem = localStorage.getItem(key);
+      if (localItem) {
+        return JSON.parse(localItem);
       }
       return null;
     };

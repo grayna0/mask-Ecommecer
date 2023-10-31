@@ -1,6 +1,10 @@
-import { link } from "fs";
-import React from "react";
-import {Link} from 'react-router-dom'
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+import {Link, useNavigate} from 'react-router-dom'
+import { BsMenuUp } from 'react-icons/bs';
 
 interface Nav {
   id: number;
@@ -70,3 +74,35 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
+
+
+
+
+export  function MenuPopupState() {
+  const navigate =useNavigate()
+  const linkToPage = (item:Nav ) => {
+ 
+    navigate(item.link)
+  }
+  return (
+  <div className='menu-mobile'>
+
+    <PopupState  variant="popover" popupId="demo-popup-menu">
+      {(popupState:any) => (
+        <React.Fragment>
+          <Button variant="contained" {...bindTrigger(popupState)}>
+          <BsMenuUp  className="fill-white w-6 h-6 "/>
+          </Button>
+          <Menu {...bindMenu(popupState)}>
+            {
+            navbar.map(item =>  <MenuItem onClick={() => {linkToPage(item) } }>{item.title}</MenuItem>)
+            }
+    
+          </Menu>
+        </React.Fragment>
+      )}
+    </PopupState>
+  </div>
+  );
+}

@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import TableProduct from "../tableproduct/TableProduct";
-import { ProductContext } from "../layout/Index";
+import { ProductContext } from "../../layout/Index";
 
 
 

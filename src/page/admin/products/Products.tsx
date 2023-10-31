@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../../../styles/products.scss";
+import "./products.scss";
 import { BsSearch } from "react-icons/bs";
 import Add from "../compoent/add/Add";
 import DataTable from "./List-product";
