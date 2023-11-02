@@ -3,10 +3,11 @@ import axios from "axios"
 
 export const api= axios.create(
    {
-     baseURL: "https://mocki.io/v1/97fb96a5-a0cb-4e57-babe-2c6cd71e75bc",
+     baseURL: "localhost:3001",
   
      headers:{
-        "Content-Type":"application/json"
+        "Content-Type":"application/json",
+        "Access-Control-Allow-Origin":"disable"
      }
 
 }
