@@ -23,7 +23,7 @@ export const actionRegister = createAsyncThunk(
     "action/actionRegister",
     async (data: any, thunkAPI) => {
         const name: any = thunkAPI.getState()
-        console.log(name?.auth.name);
+     
         if (data.nickname !== name?.auth.name) {
             await api.post(`/infoUsers`, data)
         }

@@ -29,7 +29,7 @@ export const checkout = createAsyncThunk(
         const { removeLocalItem } = useLocalStorage()
 
         if (data) {
-            Promise.all(
+          await Promise.all(
                 data.listChose.map(async item => {
                     const updateProduct = data.arrPro.find(i => i.id === item.id)
                     await api.put(`/products/${item?.id}`, { ...updateProduct, quantity: item.quantityIntital - item.quantity })
