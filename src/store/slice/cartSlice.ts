@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { api } from "../../services/Api";
 import { Product } from "../../page/admin/Admin";
@@ -82,10 +84,10 @@ const cartSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(checkout.pending, (state, action) => {
+            .addCase(checkout.pending, (state, _action) => {
                 state.checkoutSuccees = true
             })
-            .addCase(checkout.fulfilled, (state, action) => {
+            .addCase(checkout.fulfilled, (state, _action) => {
                 state.itemsList = []
                 state.totalPrice = 0
                 state.totalQuantity = 0
@@ -93,13 +95,13 @@ const cartSlice = createSlice({
 
             })
 
-            .addCase(checkout.rejected, (state, action) => {
+            .addCase(checkout.rejected, (_state, _action) => {
                 alert(" checkout false");
             })
-            .addCase(checkoutUser.pending, (state, action) => {
+            .addCase(checkoutUser.pending, (state, _action) => {
                 state.checkoutSuccees = true
             })
-            .addCase(checkoutUser.fulfilled, (state, action) => {
+            .addCase(checkoutUser.fulfilled, (state, _action) => {
                 state.itemsList = []
                 state.totalPrice = 0
                 state.totalQuantity = 0
@@ -107,7 +109,7 @@ const cartSlice = createSlice({
 
             })
 
-            .addCase(checkoutUser.rejected, (state, action) => {
+            .addCase(checkoutUser.rejected, (_state, _action) => {
                 alert(" checkoutUser false");
             })
 
