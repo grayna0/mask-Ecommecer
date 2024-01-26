@@ -70,7 +70,7 @@ const Aboutus = () => {
       className="productcer-wrap flex justify-center items-center"
       onMouseDown={(e) => handleMouseDown(e)}
       onMouseMove={(e) => handleMouseMove(e)}
-      onMouseUp={(e) => handleMouseUp(e)}
+      onMouseUp={ handleMouseUp}
     >
      <ListProductcers index={indexShow}/>
     </div>
