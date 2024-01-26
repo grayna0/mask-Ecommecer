@@ -2,7 +2,7 @@ import { Container } from "@mui/material";
 import Header from "../compoents/header/Header";
 import { Outlet } from "react-router-dom";
 
-import React, { useEffect, useState ,createContext} from "react";
+import  { useEffect, useState ,createContext} from "react";
 import { Product } from "../page/admin/Admin";
 import Footer from "../compoents/footer/Footer";
 import { useSelector } from "react-redux";

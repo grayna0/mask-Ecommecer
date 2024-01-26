@@ -6,12 +6,15 @@ export const postTimeCountDown = createAsyncThunk(
         try {
             api.put(`/countdown/1`, data)
         }
-        catch (e) { }
+        catch (e) { 
+            console.log(e);
+            
+        }
     }
 )
 export const getTimeCountDown = createAsyncThunk(
     "countdown/postTimeCountDown",
-    async (arg, thunkAPI: any) => {
+    async ( thunkAPI: any) => {
 
         const res = await api.get(`/countdown`)
         const resData = res.data[0]

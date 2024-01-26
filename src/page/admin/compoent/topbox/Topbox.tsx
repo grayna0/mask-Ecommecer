@@ -1,4 +1,3 @@
-import React from "react";
 import { topDealUsers } from "../../../../services/data";
 import "./topbox.scss";
 

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, CSSProperties } from "react";
+import  { useState, useContext, useEffect, CSSProperties } from "react";
 import "./home.scss";
 import Banner from "../../compoents/slide/Banner";
 import { Product } from "../admin/Admin";

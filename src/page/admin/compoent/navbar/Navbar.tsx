@@ -1,4 +1,3 @@
-import React from "react";
 import { BsCart4, BsSearch, BsAppIndicator } from "react-icons/bs";
 
 import { Container } from '@mui/material';

@@ -1,4 +1,4 @@
-import React from "react";
+
 import Navbar, { MenuPopupState } from "./Navbar";
 
 import {Link, useNavigate} from 'react-router-dom'
@@ -9,7 +9,7 @@ import { actionLogOut } from "../../store/slice/authSlice";
 
 const Header = () => {
   const {loginSuccess} =useSelector((state:any)=>state.auth)
-  const totalQuantity= useSelector((state:any)=>state.addToCart.totalQuantity)
+
 
 
   const distpatch = useDispatch()

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Product } from "../Admin";
 import { useParams } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";

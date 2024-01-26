@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import  { memo, useState } from "react";
 import "./about.scss";
 import { BiSolidQuoteAltLeft } from "react-icons/bi";
 const arrAboutUs = [
@@ -46,7 +46,7 @@ const Aboutus = () => {
   const handleMouseMove = (event: any) => {
     setEndX(event.clientX);
   };
-  const handleMouseUp = (event: any) => {
+  const handleMouseUp = () => {
     if (startX === endX) {
       return;
     }

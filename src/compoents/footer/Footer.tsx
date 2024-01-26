@@ -1,4 +1,3 @@
-import React from "react";
 import "./footer.scss";
 import { menuHome } from "../../services/data";
 import {

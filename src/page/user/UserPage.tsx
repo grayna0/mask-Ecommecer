@@ -9,7 +9,6 @@ import "./userpage.scss";
 import { changeUserDetails } from "../../store/slice/authSlice";
 import useLocalStorage from "../../hook/useLocalStorage";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -47,8 +46,9 @@ function a11yProps(index: number) {
 export default function UserPage() {
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
+  
   };
 
   return (
@@ -90,7 +90,6 @@ export default function UserPage() {
 
 const UserDetailsPanel = () => {
   const { getLocalItem, setLocalItem } = useLocalStorage();
-  const [fileUpload, setFile] = useState<any>();
   const useDetail = getLocalItem("user");
   const useCart = getLocalItem("cart");
   const dispatch = useDispatch();
@@ -98,7 +97,6 @@ const UserDetailsPanel = () => {
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file:any = e.target.files?.[0]
 
-    setFile(URL.createObjectURL(file))
 
 
     // @ts-ignore

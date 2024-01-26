@@ -10,7 +10,7 @@ import { api } from "../../../services/Api";
 export default function DataTable({
   dataProducts,
   setproducts,
-  producer
+ 
 }: {
   dataProducts: Product[];
   setproducts: any;

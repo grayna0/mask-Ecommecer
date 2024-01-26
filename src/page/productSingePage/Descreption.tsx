@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/slice/cartSlice";
 import { Link } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { api } from "../../services/Api";
 import ListComment from "./ListComment";
 import ShowStars from "../../compoents/star-rating/ShowStar";

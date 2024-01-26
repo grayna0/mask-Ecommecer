@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { api } from "../../services/Api";
 
@@ -34,7 +35,7 @@ export const actionRegister = createAsyncThunk(
 )
 export const actionLogOut = createAsyncThunk(
     "action/actionLogOut",
-    async (payload: any, thunkAPI) => {
+    async (_payload: any, thunkAPI) => {
         const { removeLocalItem } = useLocalStorage()
         removeLocalItem("user")
         // @ts-ignore
@@ -48,6 +49,8 @@ export const changeUserDetails = createAsyncThunk(
         try {
             await api.put(`/infoUsers/${idUser?.auth.id}`, data)
         } catch (error) {
+            console.log(error);
+            
         }
     }
 )
@@ -77,7 +80,8 @@ const authSlice = createSlice({
 
 
         },
-        logOutAcount(state, action) {
+   
+        logOutAcount(state, _action) {
             state.detail.name = null
             state.detail.pws = null
             state.loginSuccess = false
@@ -113,12 +117,12 @@ const authSlice = createSlice({
                 state.detail.img = action.meta.arg.img
 
             })
-            .addCase(actionLogOut.pending , (state,action) => {
+            .addCase(actionLogOut.pending , (state,_action) => {
                 state.loading=true
                 state.loginSuccess=true
                 state.registerSuccess=false
             })
-            .addCase(actionLogOut.fulfilled , (state,action) => {
+            .addCase(actionLogOut.fulfilled , (state,_action) => {
                 state.loading=false
                 state.loginSuccess=false
                 state.detail={ id: null,
@@ -127,15 +131,15 @@ const authSlice = createSlice({
                     name: null,
                     pws: null,}
             })
-            .addCase(actionLogOut.rejected , (state,action) => {
+            .addCase(actionLogOut.rejected , () => {
              console.log("Logout false");
              
             })
-            .addCase(actionLogin.fulfilled , (state,action) => {
+            .addCase(actionLogin.fulfilled , (state,_action) => {
                 state.loading=true
                 state.registerSuccess=false
             })
-            .addCase(actionLogin.rejected , (state,action) => {
+            .addCase(actionLogin.rejected , () => {
              console.log("LogIn false");
              
             })

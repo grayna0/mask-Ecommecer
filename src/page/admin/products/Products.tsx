@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import "./products.scss";
 import { BsSearch } from "react-icons/bs";
 import Add from "../compoent/add/Add";

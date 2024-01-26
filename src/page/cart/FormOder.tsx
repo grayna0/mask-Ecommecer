@@ -16,7 +16,7 @@ type Inputs = {
   export const FormOder = () => {
     const { register, handleSubmit } = useForm<Inputs>();
   
-    const onSubmit: SubmitHandler<Inputs> = (data) => {};
+    const onSubmit: SubmitHandler<Inputs> = () => {};
     return (
       <form className="checkout-form " onSubmit={handleSubmit(onSubmit)}>
         <h2>Billing Details</h2>

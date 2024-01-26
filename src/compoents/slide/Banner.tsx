@@ -1,11 +1,8 @@
-import React from "react";
-// import { Typewriter } from "../LazyLoadSreen";
-// const arrText =[ "HYPEBROTHER"]
+
 const Banner = () => {
   return (
     <div className="banner">
      
-      {/* <Typewriter text={arrText} delay={200}  infinite/>   */}
       <div className="content-banner ">
   
         <svg>

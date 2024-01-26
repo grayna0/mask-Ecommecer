@@ -1,4 +1,4 @@
-import React from 'react'
+
 import "./ball.scss"
 const Ball = ({width,height,x,y,nameAnimation,dur}:{nameAnimation?:string,width?:number,height?:number,x?:number,y?:number,dur?:number}) => {
   return (
