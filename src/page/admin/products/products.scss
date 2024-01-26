@@ -1,0 +1,26 @@
+.contain-product{
+    .add-product{
+        padding:10px 20px;
+        background-color: aquamarine;
+        border-radius:5px;
+        font-size: 18px;
+
+    }
+    .sreach-product{
+        margin:20px 0 5px 0;
+        input[type="text"]{
+            padding:5px 5px;
+            font-size: 18px;
+            border-radius:5px
+        }
+        .icon-sreach{
+            margin-left:-20px;
+            z-index: 111;
+        }
+    }
+    .list-product{
+        .dataGrid{
+            width: 100%;
+        }
+    }
+}

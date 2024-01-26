@@ -1,0 +1,315 @@
+@import "../../styles/comon.scss";
+
+.container {
+  .banner {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient($main-bg, rgba(68, 0, 82, 0.623));
+    align-items: flex-end;
+    height: 670px;
+    @include md {
+      display: none;
+    }
+    .typing-animation{
+      max-width: 300px;
+      position: absolute;
+      top:30%;
+      left: 20%;
+      transform: translate(-50%, -30%);
+      mix-blend-mode: overlay;
+      color:$main-color ;
+      h2{
+        font-size:22px ;
+      }
+   
+    }
+   
+    .content-banner {
+      position: relative;
+      svg {
+        position: absolute;
+        top: 0;
+      }
+      .banner-img {
+        max-height: 600px;
+        @include md {
+          max-height: 400px;
+        }
+
+        filter: url(#custom);
+        margin-bottom: 50px;
+      }
+    }
+  }
+  .box-cate {
+    width: 70%;
+    gap: 20px;
+    justify-content: center;
+    margin: -100px auto 0 auto;
+    filter: drop-shadow(0 0 10px);
+    @include lg {
+      flex-wrap: wrap;
+
+      padding: 0 0px;
+    }
+    @include md {
+      filter: none;
+      width: 98%;
+      margin: 50px auto 0 auto;
+    }
+
+    .box-cate-list {
+      flex-basis: calc(100% / 4 - 20px);
+      @include xxl {
+        flex-basis: calc(100% / 2 - 20px);
+        height: 200px;
+      }
+      @include md {
+        flex-basis: calc(100% - 20px);
+        height: 150px;
+      }
+    }
+  }
+
+  .section-1 {
+    padding: 100px 100px;
+    @include xxl {
+      padding: 50px 20px;
+    }
+    @include md {
+      display: none;
+    }
+    .title {
+      text-align: center;
+      padding: 20px;
+      color: $main-color;
+
+      font-family: k2d;
+    }
+    .content {
+      justify-content: center;
+      align-items: center;
+      border: 5px solid $main-color;
+      padding: 50px 0px;
+
+      .content-left {
+        position: relative;
+        flex: 50%;
+        max-width: 50%;
+        justify-content: center;
+        .ball {
+          @include xxl {
+            width: 300px !important;
+            height: 300px !important;
+          }
+          @include lg {
+            width: 200px !important;
+            height: 200px !important;
+          }
+        }
+        .active {
+          animation: active-img 3s ease-in-out;
+          transform: translate(0px);
+        }
+        img {
+          width: 500px;
+          height: 500px;
+          z-index: 1111;
+          filter: drop-shadow(0 100px 70px black);
+          @include xxl {
+            width: 400px;
+            height: 400px;
+          }
+          @include lg {
+            width: 250px;
+            height: 250px;
+          }
+        }
+      }
+      .content-right {
+        position: relative;
+        overflow: hidden;
+        flex: 50%;
+        max-width: 50%;
+        justify-content: flex-start;
+        color: $main-color;
+        padding: 50px 50px;
+        .product-title {
+         
+          font-size: 48px;
+          @include xxl {
+            font-size: 32px;
+          }
+        }
+        .price {
+          padding: 5px 0 30px 0;
+        }
+        .description {
+          max-width: 600px;
+          padding-bottom: 40px;
+          @include lg {
+            display: none;
+          }
+        }
+        .product-button {
+          gap: 50px;
+        }
+      }
+    }
+  }
+  .cate-product {
+    padding: 50px 200px;
+
+    @include xxxl {
+      padding: 50px 20px;
+      .box-product {
+        .box-img {
+          img {
+            width: 250px;
+          }
+        }
+      }
+    }
+    @include lg {
+      .box-product {
+        .box-img {
+          img {
+            width: 200px;
+          }
+          .title {
+            font-size: 18px;
+            font-weight: 300;
+          }
+          .price {
+            font-size: 14px;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+    @include md {
+      .box-product {
+        flex-basis: calc(100% / 2 - 40px);
+        .box-img {
+          img {
+            width: 250px;
+          }
+          .title {
+            font-size: 16px;
+            font-weight: 300;
+          }
+          .price {
+            font-size: 14px;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+    @include md {
+      img {
+        width: 150px;
+      }
+    }
+  }
+  .section-4 {
+    justify-content: space-between;
+    gap: 50px;
+    padding: 50px 220px;
+
+    .productcer-wrap {
+      flex-basis: 50%;
+    }
+    .QuestionA {
+      flex-basis: 50%;
+    }
+    @include xxl {
+      padding: 50px 50px;
+    }
+    @include lg {
+      display: block;
+      padding: 50px 40px;
+      .productcer-wrap {
+        width: 100%;
+      }
+      .QuestionA {
+        width: 100%;
+        margin-top: 50px;
+      }
+    }
+  }
+}
+.effect-upt {
+  animation-name: upText;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+.effect-up-05s {
+  animation: effect-up-05s 1s ease-in-out;
+}
+.effect-up-3s {
+  animation: effect-up-3s 1.2s ease-in-out;
+}
+.effect-up-4s {
+  animation: effect-up-4s 1.5s ease-in-out;
+}
+.effect-up-5s {
+  animation: effect-up-5s 1.8s ease-in-out;
+}
+@keyframes effect-up-05s {
+  from {
+    transform: translate(0rem, 10rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes effect-up-3s {
+  from {
+    transform: translate(0rem, 10rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes effect-up-4s {
+  from {
+    transform: translate(0rem, 10rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes effect-up-5s {
+  from {
+    transform: translate(0rem, 10rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes upText {
+  from {
+    transform: translate(0rem, 10rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes active-img {
+  from {
+    transform: translate(20rem, 0rem);
+    filter: blur(10px);
+    opacity: 0.1;
+    scale: 0.5;
+    filter: drop-shadow(0 100px 70px black);
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.css-sghohy-MuiButtonBase-root-MuiButton-root{
+  background-color: transparent;
+}

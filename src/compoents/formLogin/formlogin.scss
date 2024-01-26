@@ -1,0 +1,84 @@
+@import "../../styles/comon.scss";
+
+.content-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../../../public/unnamed.jpg");
+  background-repeat: no-repeat;
+  background-position:center center;
+  background-size: cover;
+  .content-left {
+      
+      flex: 50%;
+    max-width: 50%;
+    display: flex;
+    justify-content:center;
+   
+    .form-login{
+        background-color: rgba(0, 255, 255, 0.678);
+        padding:50px 50px;
+        border-radius:10px;
+        min-width: 300px;
+        @include sm{
+            padding:20px 20px
+        }
+        .error-login{
+            max-width: 400px;
+        }
+        .title-form{
+            margin-bottom:30px ;
+
+        }
+        h2{
+         color: $main-color;
+
+        }
+        input:not([type="submit"]){
+            width: 300px;
+            border-radius:5px;
+            padding: 10px 20px;
+            margin:10px 0;
+            display:block;
+       
+            @include lg{
+                max-width: 100%;
+            }
+            @include sm{
+                max-width: 100%;
+            }
+           
+    
+        }
+        .bottom-form{
+            display: flex;
+            justify-content: space-between;
+            button{
+                padding:10px 40px;
+                height: max-content;
+                border-radius: 5px;
+                background-color: burlywood;
+                font-family: ChakraSemiBold,sans-serif;
+                font-size: 22px;
+              
+                @include md{
+                    padding:10px 20px;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+      
+    }
+    .content-right {
+    flex: 50%;
+    max-width: 50%;
+    height: 100vh;
+    background-color: rgba(173, 27, 130, 0.623);
+    @include xl {
+        display: none;
+    }
+  }
+}

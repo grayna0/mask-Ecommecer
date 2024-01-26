@@ -1,0 +1,97 @@
+@import "../../styles/comon.scss";
+.title-head {
+  text-align: center;
+  padding: 20px;
+  color: $main-color;
+
+  font-family: k2d;
+}
+.cate-product {
+  flex-wrap: wrap;
+  // justify-content: center;
+  padding: 50px 100px;
+  gap: 20px;
+  .filter{
+    flex-basis: 100%;
+  
+  }
+
+  .box-product{
+    position:relative;
+      border-radius: 15px;
+      flex-basis: calc(100%/4 - 24px);
+    
+      .box-img {
+       display: flex;
+      background-color: $main-color;
+      flex-direction: column;
+      gap: 10px;
+      padding:10px 20px;
+      border-radius: 15px;
+      transition: all 0.5s;
+      overflow: hidden;
+      color: $main-bg;
+      max-height: 384px;
+      .title{
+        max-width: 300px;
+        font-size: 20px;
+        font-weight: 400;
+      }
+      .img { 
+        width: 100%;
+        transform: scale(.9);
+        transition: all 0.5s;
+        max-height:268px;
+       
+      }
+      &:hover {
+        background-color: rgba(195, 192, 192, 0.285);
+        box-shadow: 0px 20px 25px rgba(255, 255, 255, 0.735);
+        color: $main-color;
+      }
+      .btn-icon{
+        position: absolute;
+        bottom: 40%;
+        left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        z-index: 11;
+        .icon-add-cart{  
+          width: 20px;
+          height: 20px;
+          fill: white;
+          filter: drop-shadow(0 10px 5px black);
+          opacity: 0;
+          transform: translate(-25px, 0);
+          transition: all .5s;
+          &:hover{
+            width: 30px;
+            height: 30px;
+          }
+          &:active{
+            fill: burlywood;
+          }
+        }
+      
+      }
+    }
+    &:hover .box-img > .btn-icon > .icon-add-cart {
+     transform: translate(-10px ,0);
+      opacity: .9;
+    }
+    &:hover .box-img > img  {
+      transform:translateY(-10px) scale(.95);
+      filter: drop-shadow(0 30px 10px black)
+
+     }
+    
+ 
+    .add-to-cart{
+      position:absolute;
+      bottom:0;
+      left:0
+   
+    }
+  }
+}

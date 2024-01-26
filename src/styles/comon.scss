@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+$main-bg: #2a3447;
+$soft-bg: #384256;
+$dark-bg: #222b3c;
+//TEXT
+$main-color: white;
+$soft-color: #ddd;
+$dark-color: #030303;
+$sm: 480px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1200px;
+$xxl: 1400px;
+$xxxl: 1580px;
+
+@mixin sm {
+  @media screen and (max-width: $sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (max-width: $md) {
+    @content;
+  }
+}
+@mixin lg {
+  @media screen and (max-width: $lg) {
+    @content;
+  }
+}
+@mixin xl {
+  @media screen and (max-width: $xl) {
+    @content;
+  }
+}
+@mixin xxl {
+  @media screen and (max-width: $xxl) {
+    @content;
+  }
+  
+}
+@mixin xxxl {
+  @media screen and (max-width: $xxxl) {
+    @content;
+  }
+  
+}
+@font-face{
+  font-family: ChakraBold;
+  src: url("../font/ChakraPetch-Bold.ttf");
+}
+@font-face{
+  font-family: ChakraLight;
+  src: url("../font/ChakraPetch-Light.ttf");
+  font-weight: 300;
+}
+@font-face{
+  font-family: ChakraRegular;
+  src: url("../font/ChakraPetch-Regular.ttf");
+}
+@font-face{
+  font-family: ChakraSemiBold;
+  src: url("../font/ChakraPetch-SemiBold.ttf");
+  font-weight: 600;
+}
+img {
+    max-width: 100%;
+  height: auto;
+  display: block;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+h1{
+  font-size: 62px;
+  font-family: ChakraSemiBold;
+}
+h2{
+  font-size: 32px;
+  font-family: ChakraSemiBold;
+}
+h3{
+  font-size: 20px;
+ 
+
+}
+h4{
+  font-size: 20px;
+
+}
+p,a,label{
+  font-size: 18px;
+  font-family: ChakraLight;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+button{
+    border: none;
+    // background-color: none;
+    cursor:pointer;
+
+}
+input{
+    border:none;
+    &:focus{
+        outline:none;
+    }
+    &::placeholder{
+        font-size:90%
+    }
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding:0;
+}
+a{
+text-decoration:none;
+color:black;
+}
+.container{
+    width:100%;
+   
+}
+.icon{
+  min-width: 20px;
+  min-height: 20px;
+  cursor:pointer;
+}
+.ball{
+   
+    border-radius:100%;
+    background-image: linear-gradient(blue,red) ;
+    filter: blur(10px);
+    z-index: 11;
+
+ 
+}
+.flex-col{
+  flex-direction: column;
+}
+.flex-basic-50{
+
+  flex-basis: 50%;
+}
+.flex-gap-20{
+  gap: 20px;
+}
+.bor-radius-20{
+  border-radius: 20px;
+}
+.thumb{
+  max-width: 200px;
+}
+.style-button{
+  display: flex;
+  align-items: center;
+  padding: 20px 30px;
+  border-radius: 50px;
+  background:linear-gradient(-45deg,#ffa63d,#ff3d77,#1593e3,#5918df); 
+  background-size: 1000%;
+   transition: all 1s;
+  box-shadow: 0 10px 20px #5918df;
+  span{
+    font-size: 20px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .after {
+    width: 0px;
+    display: inline-block;
+    overflow: hidden;
+    transition: width .5s;
+  }
+  .text{
+  
+    display: inline-block;
+    transform: translate(0px, 0px);
+    transition: transform .5s;
+  }
+  
+  &:hover .text {
+ 
+    transform: translate(-10px, 0px);
+    
+  }
+  &:hover .after {
+    width:20px;
+
+  }
+  &:hover  {
+ 
+    box-shadow: 0 10px 40px #5918df;
+  }
+  &:active{
+    transform: scale(0.9);
+
+  }
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+
+ 

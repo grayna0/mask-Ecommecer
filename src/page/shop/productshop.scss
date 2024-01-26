@@ -1,0 +1,79 @@
+@import "../../styles/comon.scss";
+
+.shop {
+  .banner-shop {
+    width: 100%;
+    height: 300px;
+    border: 1px solid black;
+    background-image: url("../../../public/banner2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin-bottom: 100px;
+  }
+  .wrap-product {
+    display: flex;
+    justify-content: center;
+    gap:20px;
+    @include md {
+      display: block;
+    }
+    .sidebar {
+      flex: 30%;
+      max-width: 30%;
+      @include md{
+        display: none;
+      }
+      .cate-list{
+
+        display: flex;
+        flex-direction: column;
+        @include md {
+          .cate-list{
+            flex-direction: row;
+          
+          }
+        }
+        .header-price,.header-cate{
+          margin: 20px 0 10px 0;
+        }
+        .search-price, .search-cate{
+          width: max-content;
+          margin: 10px 0px;
+        }
+        .active {
+        color: red;
+       }
+      }
+    }
+    .cate-product {
+      justify-content: start;
+      flex: 85%;
+      max-width: 85%;
+      padding: 0;
+      @include md{
+        max-width: 100%;
+    
+      }
+      .box-product{
+        flex-basis: calc(100%/3 - 20px);
+        @include md{
+          max-width: 100%;
+          flex-basis: calc(100%/2 - 20px);
+        }
+        @include xl{
+          img{
+            width: 200px;
+
+          }
+          .title{
+            font-size: 18px;
+          }
+          .price{
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import "../../styles/comon.scss";
+body {
+  background-color: $main-bg;
+}
+.main {
+  font-family: "Inter", sans-serif;
+  padding-top: 10px;
+  .contain {
+    display: flex;
+    .menucontain {
+      display: flex;
+      flex-direction: column;
+      padding: 5px 20px;
+
+      border-right: 1px solid $soft-bg;
+      @include md {
+        display: none;
+      }
+    }
+    .contentcontain {
+      padding: 5px 20px;
+      width: 100%;
+    }
+  }
+}

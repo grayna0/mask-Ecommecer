@@ -1,0 +1,30 @@
+.QuestionA{
+  width: 100%;
+    .accordion{
+    
+      h3{
+     
+        border-radius: 15px;
+        border: 1px  solid white;
+        margin-top: 10px;
+        padding: 10px 10px;
+        cursor: pointer;
+      
+        font-family: ChakraSemibold;
+      
+        &:hover{
+          background-color:#c4c1c13d;
+        }
+        &:active{
+          background-color:white;
+        }
+      }
+      .active-aws{
+        padding: 10px 10px;
+        height:60px;
+      
+      }
+  
+    }
+
+  }

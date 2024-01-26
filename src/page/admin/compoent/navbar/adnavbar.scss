@@ -1,0 +1,13 @@
+// @import "../comon.scss";
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    .icons{
+        color: white;
+        display: flex;
+        gap: 20px;
+       
+    }
+
+}
