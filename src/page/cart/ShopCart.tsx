@@ -28,6 +28,7 @@ const ShopCart = () => {
       <div className="list-cart">
         <h2>Lorem ipsum dolor</h2>
         <table>
+          <tbody>
           <tr>
             <th>IMAGE</th>
             <th>PRODUCT NAME</th>
@@ -60,6 +61,7 @@ const ShopCart = () => {
             </td>
           </tr>
         ))}
+        </tbody>
         </table>
       </div>
       <Link to="/checkout"><h2 className="bg-red-400 inline-block my-8 rounded-3xl p-3">Check Out</h2></Link>

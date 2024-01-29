@@ -44,7 +44,7 @@ const Layout = () => {
     
       </Container>
       <ToastContainer
-        position= "top-right"
+        position= "bottom-right"
         autoClose= {8000}
         pauseOnHover= {true}
         draggable= {true}

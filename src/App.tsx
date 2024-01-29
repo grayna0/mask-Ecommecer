@@ -32,7 +32,7 @@ function App() {
     if (userLocalStorage) {
       store.dispatch(loginAcount(userLocalStorage));
     }
-  });
+  },[]);
 
   return (
     <Provider store={store}>

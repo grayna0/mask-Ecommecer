@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -48,7 +48,6 @@ export default function UserPage() {
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
-  
   };
 
   return (
@@ -90,18 +89,22 @@ export default function UserPage() {
 
 const UserDetailsPanel = () => {
   const { getLocalItem, setLocalItem } = useLocalStorage();
+  const [imgSrc, setImgSrc] = useState<string>("");
   const useDetail = getLocalItem("user");
   const useCart = getLocalItem("cart");
   const dispatch = useDispatch();
+  useEffect(() => {
+    setImgSrc(useDetail.img);
+  }, []);
 
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file:any = e.target.files?.[0]
-
-
+    const file: any = e.target.files?.[0];
+    const url = URL.createObjectURL(file);
+    setImgSrc(url);
 
     // @ts-ignore
-    dispatch(changeUserDetails({ ...useDetail, img: URL.createObjectURL(file) }));
-    setLocalItem("user", { ...useDetail, img: URL.createObjectURL(file) });
+    dispatch(changeUserDetails({ ...useDetail, img: url }));
+    setLocalItem("user", { ...useDetail, img: url });
   };
   return (
     <div className="w-full">
@@ -111,7 +114,7 @@ const UserDetailsPanel = () => {
       </div>
       <div className="box-info-user flex gap-5">
         <div className="box-img-user  bg-zinc-200 p-4">
-          <Avatar alt="Remy Sharp" src={useDetail.img} />
+          <Avatar alt="Remy Sharp" src={imgSrc} />
           <label htmlFor="img">
             <BsCameraFill />
             <input
@@ -133,20 +136,22 @@ const UserDetailsPanel = () => {
         </div>
       </div>
       <table style={{ width: "80%" }} className=" bg-zinc-200 p-4 rounded-md">
-        <tr>
-          <td>First Name</td>
-          <td>Last Name</td>
-          <td>Email</td>
-          <td>Phone</td>
-          <td>Birth date</td>
-        </tr>
-        <tr>
-          <td>Nick</td>
-          <td>DuBuque</td>
-          <td>Jayden.Gislason78@gmail.com</td>
-          <td>(445) 653-3771 x985</td>
-          <td>26 Apr, 1996</td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+            <td>Birth date</td>
+          </tr>
+          <tr>
+            <td>Nick</td>
+            <td>DuBuque</td>
+            <td>Jayden.Gislason78@gmail.com</td>
+            <td>(445) 653-3771 x985</td>
+            <td>26 Apr, 1996</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   );

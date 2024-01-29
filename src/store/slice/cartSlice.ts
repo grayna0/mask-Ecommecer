@@ -4,7 +4,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { api } from "../../services/Api";
 import { Product } from "../../page/admin/Admin";
 import useLocalStorage from "../../hook/useLocalStorage";
-
 export const checkout = createAsyncThunk(
     "checkout/Checkout",
     async (data: objCheckOut) => {
@@ -19,6 +18,7 @@ export const checkout = createAsyncThunk(
                 })
             )
             removeLocalItem("cart")
+           
         }
 
     }

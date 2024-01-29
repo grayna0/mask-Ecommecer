@@ -38,11 +38,8 @@ export const ContentForm = ({
 
   } = useForm<infoUser>();
   const onSubmit: SubmitHandler<infoUser> = async (data) => {
-    const res = await api.get(`/infoUsers/?q=${username}`);
+    const res = await api.get(`/infoUsers?nickname=${username}`);
     const resjson = res.data[0];
-    console.log(resjson);
-    
-
     if (ChangeLayout) {
       // @ts-ignore
      const checkUserExit= dispatch(actionRegister(data));
@@ -57,7 +54,7 @@ export const ContentForm = ({
     
     } else {
        // @ts-ignore
-       dispatch(actionLogin(username));
+     dispatch(actionLogin(username));
        toast.success("Login succeed")
        navigate("/");
 

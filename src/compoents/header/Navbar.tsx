@@ -62,9 +62,9 @@ const Navbar: React.FC = () => {
             {
            nav.dropDown && <ul className="dropdown">
             {
-             nav.dropDown.map(i=>
+             nav.dropDown.map((i,index)=>
             (
-              <li> <Link to={i.link}>{i.title}</Link></li>
+              <li key={index}> <Link to={i.link}>{i.title}</Link></li>
             ))}</ul>}
           </li>
         ))}
@@ -96,7 +96,7 @@ export  function MenuPopupState() {
           </Button>
           <Menu {...bindMenu(popupState)}>
             {
-            navbar.map(item =>  <MenuItem onClick={() => {linkToPage(item) } }>{item.title}</MenuItem>)
+            navbar.map((item,index) =>  <MenuItem key={index} onClick={() => {linkToPage(item) } }>{item.title}</MenuItem>)
             }
     
           </Menu>

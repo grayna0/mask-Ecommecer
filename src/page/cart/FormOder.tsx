@@ -1,9 +1,10 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import useLocalStorage from "../../hook/useLocalStorage";
 import { useDispatch, useSelector } from "react-redux";
-import { Item, checkout, checkoutUser } from "../../store/slice/cartSlice";
+import { Item, checkout } from "../../store/slice/cartSlice";
 import { useContext } from "react";
 import { ProductContext } from "../../layout/Index";
+import { ToastContainer, toast } from "react-toastify";
 
 type Inputs = {
     firstName: string;
@@ -63,33 +64,29 @@ type Inputs = {
       (state: any) => state.addToCart.itemsList
     );
     const lastItemChoseCheckout = listChose ? listChose : listChoseOnLocal
-    const totalPrice = useSelector((state: any) => state.addToCart.totalPrice);
-  
-    const userDetail = useSelector((state: any) => state.auth);
-  
-    
+    const totalPrice = useSelector((state: any) => state.addToCart.totalPrice);    
     const dispatch = useDispatch();
     const testcontext = useContext(ProductContext);
     const arrPro = testcontext.products;
   
     const checkoutOder =  () => {
       // @ts-ignore
-      dispatch(checkoutUser(userDetail.detail));
-      // @ts-ignore
       dispatch(checkout({ listChose, arrPro }));
+      toast.success("Checkout completed")
     };
   
     return (
         <div className="oder">
         <h2>Oder</h2>
         <table className="w-full oder-tb">
+        <tbody>
           <tr className="oder-style-tr" >
             <td className="oder-title">Product</td>
             <td className="text-right oder-title ">Oder</td>
           </tr>
 
-          {lastItemChoseCheckout.map((i: any) => (
-            <tr  className="list-items">
+          {lastItemChoseCheckout.map((i: any,index:number) => (
+            <tr key={index} className="list-items">
               
 
               <td >{i.name}</td>
@@ -105,8 +102,15 @@ type Inputs = {
             <td className="oder-title">Total</td>
             <td className="text-right">{totalPrice}$</td>
           </tr>
+          </tbody>
         </table>
         <button onClick={checkoutOder}>Place Oder</button>
+        <ToastContainer
+        position= "bottom-right"
+        autoClose= {8000}
+        pauseOnHover= {true}
+        draggable= {true}
+        theme= "dark"/>
       </div>
 
     )

@@ -13,8 +13,8 @@ export const actionLogin = createAsyncThunk(
         if (dataUserLogin) {
             thunkAPI.dispatch(loginAcount(dataUserLogin))
 
-        } else {
-            const res = await api.get(`/infoUsers/?q=${data}`)
+        } else {          
+            const res = await api.get(`/infoUsers?nickname=${data}`)
             thunkAPI.dispatch(loginAcount(res.data[0]))
             setLocalItem("user", res.data[0])
         }
@@ -46,8 +46,10 @@ export const changeUserDetails = createAsyncThunk(
     "action/changeUserDetails",
     async (data: any, thunkAPI) => {
         const idUser: any = thunkAPI.getState()
+        console.log(idUser);
+        
         try {
-            await api.put(`/infoUsers/${idUser?.auth.id}`, data)
+            await api.put(`/infoUsers/${idUser?.auth.detail.id}`, data)
         } catch (error) {
             console.log(error);
             

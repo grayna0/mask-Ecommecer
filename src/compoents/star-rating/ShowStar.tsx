@@ -56,7 +56,7 @@ const Stars = ({
     return (
       <>
         {starExists.map((rate: number, index: number) => (
-          <div className="star-rating">
+          <div className="star-rating" key={index}>
             <div
               className="star-rating-wrapper"
               style={{ width: `${rate === 1 ? 100 : rate * 100}%` }}

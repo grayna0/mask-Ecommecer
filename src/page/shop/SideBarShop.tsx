@@ -3,24 +3,24 @@
 
 
 
-export const CateList = ({categoryList,getProductList,checked,}: {categoryList: any[];getProductList: (string: string) => void; checked: string;}) => {
+export const CateList = ({categoryList,getProductList,checked,}: {categoryList: any[];getProductList: (string: string) => void; checked:string}) => {
     return (
       <>
           <h2 className="header-cate ">Category</h2>
-        {categoryList.map((i: any) => {
+        {categoryList.map((i: any, index: number) => {
           if (i !== undefined) {
             return (
-              <>
+              <div key={index}>
                 <label className="search-cate">
                   <input
                     type="checkbox"
-                    onClick={() => getProductList(i)}
+                    onChange={() => getProductList(i)}
                     checked={checked === i}
                     value={i}
                   ></input>
                   {i}
                 </label>
-              </>
+              </div>
             );
           }
         })}
@@ -28,7 +28,7 @@ export const CateList = ({categoryList,getProductList,checked,}: {categoryList: 
           <input
             type="checkbox"
             checked={checked === "all"}
-            onClick={() => getProductList("all")}
+            onChange={() => getProductList("all")}
           />
           All
         </label>
