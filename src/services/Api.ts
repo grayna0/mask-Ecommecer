@@ -3,7 +3,7 @@ import axios from "axios"
 
 export const api= axios.create(
    {
-     baseURL: "https://mask-z4vz.onrender.com",
+     baseURL: "http://localhost:3001",
   
      headers:{
         "Content-Type":"application/json",
