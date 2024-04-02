@@ -1,12 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+// import { defineConfig } from 'vite'
+// import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
+export default {
   build: {
-    chunkSizeWarningLimit: 400, // size là kích thước mới bạn muốn đặt, tính bằng kilobytes
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'chunk-name': ['module-name'],
+        },
+      },
+    },
   },
-})
-
+};
 
