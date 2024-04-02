@@ -5,13 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'chunk-name': ['module-name'],
-        },
-      },
-    },
+    chunkSizeWarningLimit: 400, // size là kích thước mới bạn muốn đặt, tính bằng kilobytes
   },
 })
 
