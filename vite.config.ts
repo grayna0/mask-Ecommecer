@@ -3,6 +3,6 @@
 
 export default {
 build: {
-    chunkSizeWarningLimit: 1600, // size là kích thước mới bạn muốn đặt, tính bằng kilobytes
+    chunkSizeWarningLimit: 16000, // size là kích thước mới bạn muốn đặt, tính bằng kilobytes
   },
 }
