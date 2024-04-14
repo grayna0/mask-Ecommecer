@@ -54,34 +54,12 @@ export const  questions= [
 ]
 
 export const menu = [
-    {
-      id: 1,
-      title: "main",
-      listItems: [
-        {
-          id: 1,
-          title: "Dashboard",
-          url: "/admin/dashboard",
-          icon: "home.svg",
-        },
-        {
-          id: 2,
-          title: "Profile",
-          url: "/users/1",
-          icon: "user.svg",
-        },
-      ],
-    },
+   
     {
       id: 2,
       title: "lists",
       listItems: [
-        {
-          id: 1,
-          title: "Users",
-          url: "/admin/users",
-          icon: "user.svg",
-        },
+
         {
           id: 2,
           title: "Products",
@@ -93,13 +71,7 @@ export const menu = [
           title: "Orders",
           url: "/admin/orders",
           icon: "order.svg",
-        },
-        {
-          id: 4,
-          title: "Posts",
-          url: "/admin/posts",
-          icon: "post.svg",
-        },
+        }
       ],
     },
     {
@@ -107,67 +79,15 @@ export const menu = [
       title: "general",
       listItems: [
         {
-          id: 1,
-          title: "Elements",
-          url: "/",
-          icon: "element.svg",
-        },
-        {
-          id: 2,
-          title: "Notes",
-          url: "/",
-          icon: "note.svg",
-        },
-        {
-          id: 3,
-          title: "Forms",
-          url: "/",
-          icon: "form.svg",
-        },
-        {
           id: 4,
           title: "Calendar",
           url: "/admin/calendar",
           icon: "calendar.svg",
         },
       ],
-    },
-    {
-      id: 4,
-      title: "Maintenance",
-      listItems: [
-        {
-          id: 1,
-          title: "Settings",
-          url: "/",
-          icon: "setting.svg",
-        },
-        {
-          id: 2,
-          title: "Backups",
-          url: "/",
-          icon: "backup.svg",
-        },
-      ],
-    },
-    {
-      id: 5,
-      title: "analytics",
-      listItems: [
-        {
-          id: 1,
-          title: "Charts",
-          url: "/",
-          icon: "chart.svg",
-        },
-        {
-          id: 2,
-          title: "Logs",
-          url: "/",
-          icon: "log.svg",
-        },
-      ],
-    },
+    }
+    
+    
   ];
   
   export const topDealUsers = [

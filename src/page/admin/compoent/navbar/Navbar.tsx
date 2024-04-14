@@ -1,4 +1,4 @@
-import { BsCart4, BsSearch, BsAppIndicator } from "react-icons/bs";
+import { BsSearch, BsAppIndicator } from "react-icons/bs";
 
 import { Container } from '@mui/material';
 import  "./adnavbar.scss"
@@ -12,7 +12,6 @@ const Navbar = () => {
         <span>logo</span>
       </div>
       <div className="icons">
-        <BsCart4  className="icon"/>
         <BsSearch  className="icon"/>
         <BsAppIndicator  className="icon"/>
      
