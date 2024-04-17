@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
@@ -5,7 +6,6 @@ import MenuItem from "@mui/material/MenuItem";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 import { Link, useNavigate } from "react-router-dom";
 import { BsMenuUp } from "react-icons/bs";
-import { MdOutlineAccountCircle } from "react-icons/md";
 
 interface Nav {
   id: number;
