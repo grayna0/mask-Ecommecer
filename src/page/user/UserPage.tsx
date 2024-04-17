@@ -93,9 +93,11 @@ const UserDetailsPanel = () => {
   const useDetail = getLocalItem("user");
   const useCart = getLocalItem("cart");
   const dispatch = useDispatch();
+  
   useEffect(() => {
     setImgSrc(useDetail.img);
-  }, []);
+  }, [useDetail]);
+  console.log(imgSrc);
 
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file: any = e.target.files?.[0];

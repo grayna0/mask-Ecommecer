@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { Product } from "../Admin";
 import { useParams } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -12,17 +12,10 @@ export const ProductSingle = () => {
   const productData = useContext(productContext);
   const [product, setProduct] = useState<Product | null>(null);
   const [img, setImg] = useState("");
-
-
-
   const { register, handleSubmit, setValue } = useForm<Product>();
   const onSubmit: SubmitHandler<Product> = async (data) => {
- 
-
-
-
     const updateRow = {...product,
-      img: img,
+      img: img ? img :  product?.img ,
       inStock: data.inStock,
       price: Number(data.price),
       // producer: productData.acountActive.nickname,
@@ -33,33 +26,15 @@ export const ProductSingle = () => {
       category: data.category,
     };
 
-
-    if (img) {
       try {
-       
         productData.setUpdateProduct(updateRow);
         await api.put(`/products/${product?.id}`,updateRow);
       } catch (error) {
         console.log("error", error);
-      }
-    } else {
-      try {
-     
-
-        const newProduct = { ...updateRow, img: product?.img };
-        productData.setUpdateProduct(newProduct);
-        await api.put(`/products/${product?.id}`, newProduct);
-      } catch (error) {
-        console.log("error", error);
-      }
     }
   
   };
-  useEffect(() => {
-    InfoProductSetToForm()
-    console.log("2",product);
-  }, [id, productData.products, setValue, img]);
-  const InfoProductSetToForm = ()=>{
+  const InfoProductSetToForm =useCallback(()=>{
     const Data =  productData.products.find(
       (item: Product) => item.title === id
     );
@@ -74,13 +49,19 @@ export const ProductSingle = () => {
       setValue("inStock", Data.inStock);
     }
 
-  }
+  },[id,productData.products, setValue,])
+  useEffect(() => {
+    InfoProductSetToForm()
+  }, [id, productData.products, setValue, img,InfoProductSetToForm]);
     const handleImg = (e: ChangeEvent<HTMLInputElement>) => {
-      const file = e.target.files?.[0];
+      const file:any = e.target.files?.[0];
+      const url = URL.createObjectURL(file);
               if (file) {
-                setImg(file?.name);
+                setImg(url);
               }
     }
+    console.log(product);
+    
   return (
     <div className="container">
       <form onSubmit={handleSubmit(onSubmit)} className="container-form">
@@ -106,7 +87,7 @@ export const ProductSingle = () => {
           <h2> Image</h2>
 
           <img
-            src={img ? `/${img}` : `/${product?.img}`}
+            src={img ? img : product?.img}
             alt=""
             width={250}
             height={200}

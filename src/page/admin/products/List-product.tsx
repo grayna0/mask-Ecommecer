@@ -33,7 +33,7 @@ export default function DataTable({
       headerName: "Image",
 
       renderCell: (params) => {
-        return <img src={`/${params.row.img}` || "/logo512.png"} alt="" />;
+        return <img src={`${params.row.img}` || "/logo512.png"} alt="" />;
       },
     },
     { field: "title", headerName: "Name", width: 130 },

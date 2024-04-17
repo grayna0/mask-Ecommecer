@@ -54,7 +54,7 @@ const Admin = () => {
 
 export interface Product {
   id: number;
-  img: FileList | File[];
+  img: string;
   title: string;
   color: string[];
   producer: string;
