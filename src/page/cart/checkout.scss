@@ -52,6 +52,11 @@
      padding: 50PX 20px 200px 20px;
     
     }
+    @include lg {
+      order: 1;
+       width: 400px;
+      
+      }
     .oder-tb {
       border-collapse: collapse;
       width: 100%;

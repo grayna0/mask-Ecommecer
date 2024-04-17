@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeCart } from "../../store/slice/cartSlice";
 import { Link } from "react-router-dom";
