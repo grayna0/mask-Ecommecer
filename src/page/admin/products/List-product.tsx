@@ -19,6 +19,7 @@ export default function DataTable({
   const prindIndex = (params: Product) => {
     return <p>{dataProducts.indexOf(params)}</p>;
   };
+  console.log(dataProducts);
   const columns: GridColDef[] = [
     {
       field: "id",

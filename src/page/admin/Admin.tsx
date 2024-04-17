@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Navbar from "./compoent/navbar/Navbar";
 import "./admin.scss";
@@ -11,10 +12,13 @@ import { api } from "../../services/Api";
 export const productContext = createContext<any>(undefined);
 const Admin = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [UpdateProduct, setUpdateProduct] = useState<Product | null>(null);
+  const [UpdateProduct, setUpdateProduct] = useState<boolean>(false);
+  console.log(UpdateProduct);
+  console.log(products);
+  
   useEffect(() => {
     fetchData();
-    return
+    setUpdateProduct(false)
   }, [UpdateProduct]);
   const fetchData = async () => {
     try {

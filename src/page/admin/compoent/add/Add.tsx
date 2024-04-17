@@ -6,7 +6,7 @@ import { Product, productContext } from "../../Admin";
 import { api } from "../../../../services/Api";
 
 const AddProduct = ({ setClose }: { setClose: () => void }) => {
-  const AminContext = useContext(productContext);
+  const {setUpdateProduct} = useContext(productContext);
 
   const { register, handleSubmit } = useForm<Product>();
   const onSubmit: SubmitHandler<Product> = async (data) => {
@@ -23,7 +23,7 @@ const AddProduct = ({ setClose }: { setClose: () => void }) => {
       quantity: data.quantity,
     };
     setClose();
-    AminContext.setUpdateProduct(updateRow);
+    setUpdateProduct(true);
     await api.post(`/products`, updateRow);
   };
 
