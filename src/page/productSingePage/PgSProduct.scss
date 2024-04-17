@@ -12,6 +12,10 @@
   .title-lg {
     h1 {
       font-size: 62px;
+      @include sm {
+        font-size: 32px;
+      
+        }
     }
   }
   .banner-product {
@@ -144,6 +148,7 @@
             border-radius: 50px;
             background:linear-gradient(-45deg,#ffa63d,#ff3d77,#1593e3,#5918df); 
             background-size: 1000%;
+          
           }
         }
       }

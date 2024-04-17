@@ -10,8 +10,8 @@ export const CateList = ({categoryList,getProductList,checked,}: {categoryList: 
         {categoryList.map((i: any, index: number) => {
           if (i !== undefined) {
             return (
-              <div key={index}>
-                <label className="search-cate">
+              <div key={index}  className="search-cate">
+                <label>
                   <input
                     type="checkbox"
                     onChange={() => getProductList(i)}
@@ -50,7 +50,7 @@ export const CateList = ({categoryList,getProductList,checked,}: {categoryList: 
   export const SreachName = ({getProductList}: {getProductList: (string: string) => void}) =>{
     return (
       <>
-      <input type="text" placeholder="Product Name....." onChange={(e)=>getProductList(e.target.value)}
+      <input type="text" className="input-sreach" placeholder="Product Name....." onChange={(e)=>getProductList(e.target.value)}
      ></input>
       </>
     )

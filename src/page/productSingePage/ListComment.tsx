@@ -10,7 +10,7 @@ const ListComment = ({listCmt }: {listCmt:any[] }) => {
         <div className="user-comment" key={index}>
           <div className="user-img">
        
-            {/* <img src={`/${i.img}`} alt={i.img} /> */}
+            <img src={`/${i.img}`} alt={i.img} />
             <p>{i.date}</p>
           </div>
           <div className="user-dsc-comment">

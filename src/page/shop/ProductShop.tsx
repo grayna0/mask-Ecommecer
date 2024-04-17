@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import "./productshop.scss";
 import TableProduct, {
   PaginationRounded,
@@ -63,14 +63,14 @@ const ShopProducts = () => {
       setProductCateList(itemList);
     }
   };
-  const pagination = (e: any) => {
+  const pagination = useCallback((e: any) => {
     setIndexPage(e);
     const listItem: Product[] = productContext.products.slice(
       (indexPage - 1) * 9,
       indexPage + 9
     );
     setProductCateList(listItem);
-  };
+  },[indexPage,productContext.products]);
   return (
     <div className="shop container-pg ">
       <div className="banner-shop "></div>

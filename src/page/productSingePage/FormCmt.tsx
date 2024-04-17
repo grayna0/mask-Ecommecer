@@ -38,7 +38,7 @@ const Comment = ({
       const upComment = {
         user: userName.nickname,
         img: "avatar.png",
-        comment: data,
+        comment: data.mess,
         date: "11-09-2022",
         voteStar: starSelected,
       };
