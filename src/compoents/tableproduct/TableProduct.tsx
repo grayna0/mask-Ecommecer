@@ -119,7 +119,7 @@ const ProductList = ({
         return (
           <div className="box-product" key={item.id}>
             <div className="box-img " onClick={() => toProductPage(item.title)}>
-              <img className="img" src={`/${item.img}`} alt={`${item.img}`} />
+              <img className="img" src={`${item.img}`} alt={`${item.img}`} />
               {showaddcart && (
                 <div>
                   <h3 className="title">
