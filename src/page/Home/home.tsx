@@ -6,9 +6,6 @@ import { ProductContext } from "../../layout/Index";
 import Boxs from "../../compoents/box-Category/Box";
 import TableProduct from "../../compoents/tableproduct/TableProduct";
 import Question from "../../compoents/question/Question";
-import CountDown from "../../compoents/countdown/CountDown";
-import { useDispatch, useSelector } from "react-redux";
-import { getTimeCountDown } from "../../store/slice/countdownSlice";
 import Aboutus from "../../compoents/slide/Aboutus";
 import RelateProduct from "../../compoents/product/RalateProduct";
 export const tableStyle: CSSProperties = {
@@ -17,12 +14,6 @@ export const tableStyle: CSSProperties = {
 const Home = () => {
   const productsContext = useContext(ProductContext);
   const [relateProduct, setRelaPro] = useState<Product[]>([]);
-  const { date } = useSelector((state: any) => state.countDown);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    // @ts-ignore
-    dispatch(getTimeCountDown());
-  }, []);
   useEffect(() => {
     filterBestProduct();
     return;
@@ -40,7 +31,6 @@ const Home = () => {
         <Boxs />
       </div>
       <RelateProduct productData={relateProduct} />
-      {date > 0 && <CountDown />}
       <div className="test">
         <h2
           className="title-section"
@@ -50,7 +40,7 @@ const Home = () => {
         </h2>
         <TableProduct
           style={tableStyle}
-          productData={productsContext.products}
+          productData={productsContext.products.slice(0,8)}
           showaddToCart={true}
           showErrorSreach={false}
           nofound={true}

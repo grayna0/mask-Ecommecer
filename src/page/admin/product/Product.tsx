@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useCallback, useContext, useEffect, useState } from "react";
 import { Product } from "../Admin";
 import { useParams } from "react-router-dom";

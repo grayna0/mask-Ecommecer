@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import Navbar, { MenuPopupState } from "./Navbar";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -37,9 +39,12 @@ const Header = () => {
           />{" "}
         </Link>
         {loginSuccess && (
-          <Link to="user">
-            <MdOutlineAccountCircle className="fill-white w-6 h-6" />
-          </Link>
+          <>
+            <Link to="user">
+              <MdOutlineAccountCircle className="fill-white w-6 h-6" />
+            </Link>
+            <Link to="admin/products">Admin</Link>
+          </>
         )}
         <p onClick={linkToLogin}>{user}</p>
         <MenuPopupState />

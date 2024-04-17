@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Navbar from "./compoent/navbar/Navbar";
 import "./admin.scss";
 import { Container } from "@mui/material";
@@ -11,10 +12,6 @@ export const productContext = createContext<any>(undefined);
 const Admin = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [UpdateProduct, setUpdateProduct] = useState<Product | null>(null);
-
-  
-
-
   useEffect(() => {
     fetchData();
     return
@@ -29,9 +26,6 @@ const Admin = () => {
       console.error("Lỗi khi lấy dữ liệu:", error);
     }
   };
-  
-
-
   return (
     <productContext.Provider
       value={{ products, setProducts, setUpdateProduct

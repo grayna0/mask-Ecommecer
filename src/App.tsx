@@ -17,7 +17,6 @@ import PgSProduct from "./page/productSingePage/PgSProduct";
 import { ProductSingle } from "./page/admin/product/Product";
 
 import store from "./store/store";
-import AdminCountDown from "./page/admin/Calendar/AdminCountDown";
 import { useEffect } from "react";
 import { loginAcount } from "./store/slice/authSlice";
 import useLocalStorage from "./hook/useLocalStorage";
@@ -32,7 +31,7 @@ function App() {
     if (userLocalStorage) {
       store.dispatch(loginAcount(userLocalStorage));
     }
-  },[]);
+  },[userLocalStorage]);
 
   return (
     <Provider store={store}>
@@ -53,7 +52,6 @@ function App() {
           
             <Route path="/admin/products" element={<Products />} />
             <Route path="/admin/product/:id" element={<ProductSingle />} />
-            <Route path="/admin/calendar" element={<AdminCountDown />} />
           </Route>
         </Routes>
       </BrowserRouter>

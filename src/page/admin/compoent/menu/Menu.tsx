@@ -3,8 +3,6 @@ import { menu } from "../../../../services/data";
 import { Link } from "react-router-dom";
 
 import "./menuad.scss";
-import { memo } from "react";
-
 const Menu = () => {
   return (
     <div className="menu">
@@ -23,4 +21,4 @@ const Menu = () => {
   );
 };
 
-export default memo(Menu);
+export default Menu;
