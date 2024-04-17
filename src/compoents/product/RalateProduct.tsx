@@ -59,7 +59,7 @@ const  RelateProduct = ({ productData }: { productData: Product[] }) => {
               dur={2}
               nameAnimation="jumpX"
             />
-            <img className="active" src={`/${productData[prev]?.img}`} alt="asdfasdf" />
+            <img className="active" src={productData[prev]?.img} alt="asdfasdf" />
     
           </div>
           <div className="content-right">
