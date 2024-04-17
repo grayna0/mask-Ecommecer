@@ -1,12 +1,16 @@
-import { Product } from "../admin/Admin";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-const ListComment = ({ product }: { product: Product }) => {
+const ListComment = ({listCmt }: {listCmt:any[] }) => {
+  console.log(listCmt);
+  
   return (
     <div className="list-comment">
-      {product?.comment?.map((i: any, index: any) => (
+      {listCmt?.map((i: any, index: any) => (
+      
         <div className="user-comment" key={index}>
           <div className="user-img">
-            <img src={`/${i.img}`} alt={i.img} />
+       
+            {/* <img src={`/${i.img}`} alt={i.img} /> */}
             <p>{i.date}</p>
           </div>
           <div className="user-dsc-comment">

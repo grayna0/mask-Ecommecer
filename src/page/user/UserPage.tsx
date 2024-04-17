@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -97,7 +99,6 @@ const UserDetailsPanel = () => {
   useEffect(() => {
     setImgSrc(useDetail.img);
   }, [useDetail]);
-  console.log(imgSrc);
 
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file: any = e.target.files?.[0];
