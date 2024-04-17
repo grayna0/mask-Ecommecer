@@ -74,18 +74,7 @@ export const menu = [
         }
       ],
     },
-    {
-      id: 3,
-      title: "general",
-      listItems: [
-        {
-          id: 4,
-          title: "Calendar",
-          url: "/admin/calendar",
-          icon: "calendar.svg",
-        },
-      ],
-    }
+   
     
     
   ];

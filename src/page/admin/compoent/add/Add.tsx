@@ -33,18 +33,25 @@ const AddProduct = ({ setClose }: { setClose: () => void }) => {
         <h2>Add new Prodcut</h2>
         <button onClick={setClose}>click</button>
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="title">Name</label>
-          <input type="text" {...register("title")} />
-          <label htmlFor="price">Price</label>
-          <input type="number" {...register("price")} />
-          <label htmlFor="title">Producer</label>
-          <input type="text" {...register("producer")} />
-          <label htmlFor="quantity">Quantity</label>
+          <div className="input-file">
+            <h2  className="label-file">Name</h2>
+            <input type="text" {...register("title")} />
+          </div>
+          <div className="input-file">
+            <h2 className="label-file" >Price</h2>
+            <input type="number" {...register("price")} />
+          </div>
+        
+          <div className="input-file">
+            <h2 className="label-file">Quantity</h2>
 
-          <input type="number" {...register("quantity")} />
+            <input type="number" {...register("quantity")} />
+          </div>
           <input type="file" {...register("img")} />
+          <div>
+
           <input type="submit" />
-          Submit
+          </div>
         </form>
       </div>
     </div>
