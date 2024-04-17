@@ -66,6 +66,18 @@
   .right-nav {
     flex-grow: 1;
     justify-content: flex-end;
+    align-items: center;
+    .button-nav{
+    padding: 5px 10px;
+    border-radius: 50px;
+    background: linear-gradient(-45deg, #ffa63d, #ff3d77, #1593e3, #5918df);
+    background-size: 1200%;
+    transition: all 1s;
+    box-shadow: 0 0px 15px #5918df;
+    @include md {
+      display: none;
+    }
+    }
     .menu-mobile{
       display: none;
       @include md {

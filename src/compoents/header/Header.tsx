@@ -12,7 +12,7 @@ const Header = () => {
   const { loginSuccess } = useSelector((state: any) => state.auth);
   const distpatch = useDispatch();
   const navigate = useNavigate();
-  const user = loginSuccess ? "LOGOUT" : "LOGIN";
+  const user = loginSuccess ? "Log out" : "Log in";
 
   const linkToLogin = () => {
     if (loginSuccess) {
@@ -40,14 +40,14 @@ const Header = () => {
         </Link>
         {loginSuccess && (
           <>
-            <Link to="user">
+            <Link to="user"  >
               <MdOutlineAccountCircle className="fill-white w-6 h-6" />
             </Link>
-            <Link to="admin/products">Admin</Link>
+            <Link to="admin/products"  className="button-nav">Admin</Link>
           </>
         )}
-        <p onClick={linkToLogin}>{user}</p>
-        <MenuPopupState />
+        <p onClick={linkToLogin}  className="button-nav">{user}</p>
+        <MenuPopupState linkToLogin={linkToLogin} user={user} />
       </div>
     </div>
   );
