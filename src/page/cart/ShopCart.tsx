@@ -41,7 +41,7 @@ const ShopCart = () => {
         {list.map((item: any) => (
           <tr key={item.id}>
             <td className="td-img">
-              <img className="thumb" src={`/${item.img}`} alt={item.img} />
+              <img className="thumb" src={`${item.img}`} alt={item.img} />
             </td>
             <td>
               <p>{item.name}</p>

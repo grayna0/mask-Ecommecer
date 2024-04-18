@@ -12,6 +12,8 @@ import ListComment from "./ListComment";
 import ShowStars from "../../compoents/star-rating/ShowStar";
 import useLocalStorage from "../../hook/useLocalStorage";
 import Comment from "./FormCmt";
+import { toast } from "react-toastify";
+import { toastOptions } from "../../compoents/tableproduct/TableProduct";
 
 const Descreption = ({ product }: { product: Product }) => {
   const [listCmt, setListCmt] = useState<any[]>([]);
@@ -89,7 +91,9 @@ const Descreption = ({ product }: { product: Product }) => {
           <div className="actions flex gap-6 ">
             <button
               className="style-button"
-              onClick={() => dispatch(addToCart(product))}
+              onClick={() => {dispatch(addToCart(product))
+                toast.success("Add to cart succeed", toastOptions);}
+              }
             >
               <span className="text">Add to cart</span>
               <span className="after">

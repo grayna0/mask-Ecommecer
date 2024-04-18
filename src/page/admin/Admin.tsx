@@ -8,13 +8,10 @@ import { Outlet } from "react-router-dom";
 import { useEffect, useState, createContext } from "react";
 import { api } from "../../services/Api";
 
-
 export const productContext = createContext<any>(undefined);
 const Admin = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [UpdateProduct, setUpdateProduct] = useState<boolean>(false);
-  console.log(UpdateProduct);
-  console.log(products);
   
   useEffect(() => {
     fetchData();
@@ -25,14 +22,15 @@ const Admin = () => {
       const response = await api.get(`/products`);
       const jsonData = response.data;
       setProducts(jsonData);
-    
+   
     } catch (error) {
       console.error("Lỗi khi lấy dữ liệu:", error);
     }
   };
+
   return (
     <productContext.Provider
-      value={{ products, setProducts, setUpdateProduct
+      value={{ products, setProducts, setUpdateProduct,
     }}
       >
       <Container className="main" maxWidth={false}>

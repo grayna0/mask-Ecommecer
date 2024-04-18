@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ProductContext } from "../../layout/Index";
@@ -39,7 +40,7 @@ const handleUserListComment = () => {
         <div className="banner-product" id="banner-product">
           <img
             className="banner-product-img"
-            src={`/${productid?.img}`}
+            src={`${productid?.img}`}
             alt=""
           />
         </div>

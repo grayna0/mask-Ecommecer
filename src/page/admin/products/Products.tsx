@@ -61,6 +61,7 @@ const Products = () => {
           }
           setproducts={productData.setProducts}
           producer={productData.acountActive}
+          imgProduct= {productData.imgLocalstorage}
         />
       </div>
       {isOpen && <Add setClose={closeModal} />}

@@ -7,24 +7,32 @@ import { api } from "../../../../services/Api";
 
 const AddProduct = ({ setClose }: { setClose: () => void }) => {
   const {setUpdateProduct} = useContext(productContext);
-
   const { register, handleSubmit } = useForm<Product>();
+  
   const onSubmit: SubmitHandler<Product> = async (data) => {
-    const file: any = data.img[0];
-    const url: any = URL.createObjectURL(file);
-    const updateRow = {
-      img: url,
-      discription: "",
-      sale: "",
-      inStock: true,
-      price: data.price,
-      // producer: AminContext.acountActive.nickname,
-      title: data.title,
-      quantity: data.quantity,
+    
+    const file :any= data.img[0];
+    const reader = new FileReader();
+    
+    reader.onloadend = async  function() {
+      const base64String = reader.result as string;
+      
+      const updateRow = {
+        img: base64String,
+        discription: "",
+        sale: "",
+        inStock: true,
+        price: data.price,
+        // producer: AminContext.acountActive.nickname,
+        title: data.title,
+        quantity: data.quantity,
+      };
+      setClose();
+      setUpdateProduct(true);
+      await api.post(`/products`, updateRow);
     };
-    setClose();
-    setUpdateProduct(true);
-    await api.post(`/products`, updateRow);
+    reader.readAsDataURL(file);
+    
   };
 
   return (

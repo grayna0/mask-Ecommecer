@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import "./tableproduct.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -69,6 +70,13 @@ const TableProduct = ({
     </>
   );
 };
+export const toastOptions: ToastOptions = {
+  position: "top-right",
+  autoClose: 8000,
+  pauseOnHover: true,
+  draggable: true,
+  theme: "dark",
+};
 
 const ProductList = ({
   productlist,
@@ -77,13 +85,6 @@ const ProductList = ({
   productlist: Product[];
   showaddcart: boolean;
 }) => {
-  const toastOptions: ToastOptions = {
-    position: "top-right",
-    autoClose: 8000,
-    pauseOnHover: true,
-    draggable: true,
-    theme: "dark",
-  };
   const { setLocalItem, getLocalItem } = useLocalStorage();
 
   const listChose = useSelector((state: any) => state.addToCart.itemsList);

@@ -1,25 +1,23 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import { AiFillDelete } from "react-icons/ai";
 import { BsCheck } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import {Product} from "../Admin"
-import { infoUser } from "../../../compoents/formLogin/type";
 import { api } from "../../../services/Api";
 
 export default function DataTable({
   dataProducts,
   setproducts,
- 
 }: {
   dataProducts: Product[];
   setproducts: any;
-  producer:infoUser
 }) {
   const prindIndex = (params: Product) => {
     return <p>{dataProducts.indexOf(params)}</p>;
   };
-  console.log(dataProducts);
+
   const columns: GridColDef[] = [
     {
       field: "id",
@@ -33,9 +31,14 @@ export default function DataTable({
       field: "img",
       headerName: "Image",
 
-      renderCell: (params) => {
+      renderCell: (params) => 
+       { 
+        console.log(params.row.img);
+        
+
+        
         return <img src={`${params.row.img}` || "/logo512.png"} alt="" />;
-      },
+      }
     },
     { field: "title", headerName: "Name", width: 130 },
     { field: "color", headerName: "Color", width: 130 },
@@ -156,3 +159,4 @@ export default function DataTable({
     </div>
   );
 }
+
