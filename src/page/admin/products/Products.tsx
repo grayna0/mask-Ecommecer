@@ -60,8 +60,6 @@ const Products = () => {
             sreachTitles.length > 0 ? productSreach : productData.products
           }
           setproducts={productData.setProducts}
-          producer={productData.acountActive}
-          imgProduct= {productData.imgLocalstorage}
         />
       </div>
       {isOpen && <Add setClose={closeModal} />}
