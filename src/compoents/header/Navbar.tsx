@@ -100,7 +100,7 @@ export function MenuPopupState({
             </Button>
             <Menu {...bindMenu(popupState)}>
               {
-                <>
+                <div>
                   {navbar.map((item, index) => (
                     <MenuItem
                       key={index}
@@ -120,7 +120,7 @@ export function MenuPopupState({
                       Admin
                     </Link>
                   </MenuItem>
-                </>
+                </div>
               }
             </Menu>
           </React.Fragment>
